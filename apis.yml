@@ -59,6 +59,20 @@ apis:
         url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
       - type: Website
         url: https://research-repository.uwa.edu.au/
+      - type: OpenAPI
+        url: openapi/uwa-research-repository.yaml
+      - type: x-json-schema
+        url: json-schema/
+      - type: x-json-structure
+        url: json-structure/
+      - type: x-examples
+        url: examples/
+      - type: x-spectral-rules
+        url: rules/uwa-rules.yml
+      - type: x-vocabulary
+        url: vocabulary/uwa-vocabulary.yml
+      - type: x-json-ld-context
+        url: json-ld/uwa-context.jsonld
 common:
   - type: Website
     url: https://www.uwa.edu.au/

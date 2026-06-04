@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/uwa/main/json-structure/uwa-person-structure.json",
+  "name": "WSPerson",
+  "type": "object",
+  "description": "JSON Structure description of the WSPerson object from the UWA Pure Web Service 524.",
+  "properties": {
+    "pureId": {
+      "type": "int64"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "externalIdSource": {
+      "type": "string"
+    },
+    "externallyManaged": {
+      "type": "boolean"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "renderings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSHtmlRendering"
+      }
+    },
+    "name": {
+      "type": "object",
+      "name": "WSName"
+    },
+    "gender": {
+      "type": "object",
+      "name": "WSClassification"
+    },
+    "dateOfBirth": {
+      "type": "date-time"
+    },
+    "nationality": {
+      "type": "object",
+      "name": "WSClassification"
+    },
+    "nameVariants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSClassifiedName"
+      }
+    },
+    "titles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSClassifiedLocalizedValue"
+      }
+    },
+    "classifiedSources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSClassifiedValue"
+      }
+    },
+    "orcid": {
+      "type": "string"
+    },
+    "profilePhotos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSClassifiedFileRef"
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSLink"
+      }
+    },
+    "startDateAsResearcher": {
+      "type": "date-time"
+    },
+    "retirementDate": {
+      "type": "date-time"
+    },
+    "profiled": {
+      "type": "boolean"
+    },
+    "scopusHIndex": {
+      "type": "int64"
+    },
+    "profileInformations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSClassifiedLocalizedValue"
+      }
+    },
+    "studentOrganisationAssociations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSStudentOrganisationAssociation"
+      }
+    },
+    "staffOrganisationAssociations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSStaffOrganisationAssociation"
+      }
+    },
+    "visitingScholarOrganisationAssociations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSVisitingScholarOrganisationAssociation"
+      }
+    },
+    "honoraryStaffOrganisationAssociations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSHonoraryStaffOrganisationAssociation"
+      }
+    },
+    "supervisorForRelations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSPersonSupervisorAssociation"
+      }
+    },
+    "supervisedByRelations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSPersonSupervisorAssociation"
+      }
+    },
+    "leavesOfAbsence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSPersonClassifiedLeaveOfAbsence"
+      }
+    },
+    "employeeStartDate": {
+      "type": "date-time"
+    },
+    "employeeEndDate": {
+      "type": "date-time"
+    },
+    "fte": {
+      "type": "double"
+    },
+    "affiliationNote": {
+      "type": "string"
+    },
+    "externalPositions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSPersonExternalPosition"
+      }
+    },
+    "educations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSPersonEducation"
+      }
+    },
+    "professionalQualifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSProfessionalQualification"
+      }
+    },
+    "keywordGroups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSKeywordGroup"
+      }
+    },
+    "fieldOfResearchAssociations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSERA2015FieldOfResearchAssociation"
+      }
+    },
+    "willTakePhdStudents": {
+      "type": "boolean"
+    },
+    "phdResearchProjects": {
+      "type": "string"
+    },
+    "privateAddress": {
+      "type": "object",
+      "name": "WSClassifiedAddress"
+    },
+    "personExpertise": {
+      "type": "object",
+      "name": "WSPersonExpertise"
+    },
+    "visibility": {
+      "type": "object",
+      "name": "WSVisibility"
+    },
+    "info": {
+      "type": "object",
+      "name": "WSContentInformation"
+    },
+    "expert": {
+      "type": "boolean"
+    }
+  }
+}

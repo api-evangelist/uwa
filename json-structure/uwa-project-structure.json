@@ -1,0 +1,249 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/uwa/main/json-structure/uwa-project-structure.json",
+  "name": "WSUPMProject",
+  "type": "object",
+  "description": "JSON Structure description of the WSUPMProject object from the UWA Pure Web Service 524.",
+  "properties": {
+    "pureId": {
+      "type": "int64"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "externalIdSource": {
+      "type": "string"
+    },
+    "externallyManaged": {
+      "type": "boolean"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "renderings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSHtmlRendering"
+      }
+    },
+    "title": {
+      "type": "object",
+      "name": "WSLocalizedString"
+    },
+    "type": {
+      "type": "object",
+      "name": "WSClassification"
+    },
+    "natureTypes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSClassification"
+      }
+    },
+    "status": {
+      "type": "object",
+      "name": "WSUPMProjectStatus"
+    },
+    "shortTitle": {
+      "type": "object",
+      "name": "WSLocalizedString"
+    },
+    "acronym": {
+      "type": "string"
+    },
+    "descriptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSClassifiedLocalizedValue"
+      }
+    },
+    "classifiedSources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSClassifiedValue"
+      }
+    },
+    "participants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSClassifiedParticipantAssociation"
+      }
+    },
+    "organisationalUnits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSOrganisationRef"
+      }
+    },
+    "coManagingOrganisationalUnits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSOrganisationRef"
+      }
+    },
+    "externalOrganisations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSExternalOrganisationRef"
+      }
+    },
+    "managingOrganisationalUnit": {
+      "type": "object",
+      "name": "WSOrganisationRef"
+    },
+    "collaborative": {
+      "type": "boolean"
+    },
+    "collaborators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSCollaboratorAssociation"
+      }
+    },
+    "totalAcademicOwnershipPercentage": {
+      "type": "double"
+    },
+    "period": {
+      "type": "object",
+      "name": "WSDateRange"
+    },
+    "curtailed": {
+      "type": "boolean"
+    },
+    "curtailDate": {
+      "type": "date-time"
+    },
+    "curtailReason": {
+      "type": "string"
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSDocument"
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSLink"
+      }
+    },
+    "relatedApplications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSApplicationRef"
+      }
+    },
+    "relatedAwards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSAwardRef"
+      }
+    },
+    "relatedProjects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSUPMProjectAssociation"
+      }
+    },
+    "relatedPressMedia": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSPressMediaRef"
+      }
+    },
+    "relatedImpacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSImpactRef"
+      }
+    },
+    "relatedActivities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSActivityRef"
+      }
+    },
+    "relatedPrizes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSPrizeRef"
+      }
+    },
+    "relatedDataSets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSDataSetRef"
+      }
+    },
+    "relatedResearchOutputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSResearchOutputRef"
+      }
+    },
+    "relatedStudentThesis": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSStudentThesisRef"
+      }
+    },
+    "relatedEquipment": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSEquipmentRef"
+      }
+    },
+    "keywordGroups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSKeywordGroup"
+      }
+    },
+    "fieldOfResearchAssociations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSERA2015FieldOfResearchAssociation"
+      }
+    },
+    "visibility": {
+      "type": "object",
+      "name": "WSVisibility"
+    },
+    "confidential": {
+      "type": "boolean"
+    },
+    "workflow": {
+      "type": "object",
+      "name": "WSWorkflow"
+    },
+    "info": {
+      "type": "object",
+      "name": "WSContentInformation"
+    }
+  }
+}

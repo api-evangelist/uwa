@@ -1,0 +1,64 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "uwa": "https://research-repository.uwa.edu.au/vocab#",
+    "@vocab": "https://research-repository.uwa.edu.au/vocab#",
+
+    "University": "schema:CollegeOrUniversity",
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+    "identifier": "schema:identifier",
+
+    "Person": "schema:Person",
+    "Organisation": "schema:Organization",
+    "DataSet": "schema:Dataset",
+    "ResearchOutput": "schema:ScholarlyArticle",
+    "Project": "schema:ResearchProject",
+    "Event": "schema:Event",
+    "Journal": "schema:Periodical",
+
+    "pureId": "uwa:pureId",
+    "uuid": {
+      "@id": "schema:identifier",
+      "@type": "@id"
+    },
+    "orcid": {
+      "@id": "https://schema.org/identifier",
+      "@type": "@id"
+    },
+    "title": "schema:name",
+    "firstName": "schema:givenName",
+    "lastName": "schema:familyName",
+    "doi": {
+      "@id": "schema:sameAs",
+      "@type": "@id"
+    },
+    "publicationDate": {
+      "@id": "schema:datePublished",
+      "@type": "schema:Date"
+    },
+    "startDate": {
+      "@id": "schema:startDate",
+      "@type": "schema:Date"
+    },
+    "endDate": {
+      "@id": "schema:endDate",
+      "@type": "schema:Date"
+    },
+    "publisher": "schema:publisher",
+    "managingOrganisationalUnit": "schema:parentOrganization",
+    "personAssociations": "schema:author",
+    "links": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "items": "schema:itemListElement",
+    "count": "schema:numberOfItems"
+  },
+  "@type": "University",
+  "name": "University of Western Australia",
+  "url": "https://www.uwa.edu.au/",
+  "description": "Public research university in Perth, Western Australia, publishing research metadata via the Elsevier Pure CRIS Web Service."
+}

@@ -1,0 +1,53 @@
+{
+  "count": 1,
+  "pageInformation": {
+    "offset": 0,
+    "size": 25
+  },
+  "navigationLinks": [
+    {
+      "ref": "next",
+      "href": "https://api.research-repository.uwa.edu.au/ws/api/524/persons?size=25&offset=25"
+    }
+  ],
+  "items": [
+    {
+      "pureId": 600001,
+      "uuid": "abcabcab-cdcd-efef-0101-202020202020",
+      "title": {
+        "text": [
+          {
+            "locale": "en_GB",
+            "value": "Next-generation gravitational wave detectors"
+          }
+        ]
+      },
+      "type": {
+        "term": {
+          "text": [
+            {
+              "locale": "en_GB",
+              "value": "Research"
+            }
+          ]
+        }
+      },
+      "status": {
+        "term": {
+          "text": [
+            {
+              "locale": "en_GB",
+              "value": "Running"
+            }
+          ]
+        }
+      },
+      "acronym": "NGGWD",
+      "period": {
+        "startDate": "2023-01-01",
+        "endDate": "2026-12-31"
+      },
+      "collaborative": true
+    }
+  ]
+}

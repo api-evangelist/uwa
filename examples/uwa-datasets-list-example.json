@@ -1,0 +1,49 @@
+{
+  "count": 1,
+  "pageInformation": {
+    "offset": 0,
+    "size": 25
+  },
+  "navigationLinks": [
+    {
+      "ref": "next",
+      "href": "https://api.research-repository.uwa.edu.au/ws/api/524/persons?size=25&offset=25"
+    }
+  ],
+  "items": [
+    {
+      "pureId": 500001,
+      "uuid": "99999999-8888-7777-6666-555555555555",
+      "title": {
+        "value": "Gravitational wave strain dataset 2024"
+      },
+      "doi": "10.26182/uwa.example2024",
+      "publicationDate": {
+        "year": 2024,
+        "month": 3,
+        "day": 15
+      },
+      "publisher": {
+        "name": {
+          "text": [
+            {
+              "locale": "en_GB",
+              "value": "The University of Western Australia"
+            }
+          ]
+        }
+      },
+      "managingOrganisationalUnit": {
+        "uuid": "11111111-2222-3333-4444-555555555555",
+        "name": {
+          "text": [
+            {
+              "locale": "en_GB",
+              "value": "School of Physics, Mathematics and Computing"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

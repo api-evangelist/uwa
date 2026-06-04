@@ -1,0 +1,73 @@
+{
+  "count": 1,
+  "pageInformation": {
+    "offset": 0,
+    "size": 25
+  },
+  "navigationLinks": [
+    {
+      "ref": "next",
+      "href": "https://api.research-repository.uwa.edu.au/ws/api/524/persons?size=25&offset=25"
+    }
+  ],
+  "items": [
+    {
+      "pureId": 100001,
+      "uuid": "0a1b2c3d-4e5f-6789-abcd-ef0123456789",
+      "name": {
+        "firstName": "Jane",
+        "lastName": "Researcher"
+      },
+      "orcid": "0000-0002-1825-0097",
+      "startDateAsResearcher": "2015-02-01",
+      "profiled": true,
+      "scopusHIndex": 12,
+      "staffOrganisationAssociations": [
+        {
+          "pureId": 200001,
+          "organisationalUnit": {
+            "uuid": "11111111-2222-3333-4444-555555555555",
+            "name": {
+              "text": [
+                {
+                  "locale": "en_GB",
+                  "value": "School of Physics, Mathematics and Computing"
+                }
+              ]
+            }
+          },
+          "period": {
+            "startDate": "2015-02-01"
+          },
+          "employmentType": {
+            "uri": "/dk/atira/pure/person/employmenttypes/academic",
+            "term": {
+              "text": [
+                {
+                  "locale": "en_GB",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "links": [
+        {
+          "url": "https://research-repository.uwa.edu.au/en/persons/jane-researcher"
+        }
+      ],
+      "visibility": {
+        "key": "FREE",
+        "description": {
+          "text": [
+            {
+              "locale": "en_GB",
+              "value": "Public - No restriction"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+vocabulary:
+  name: UWA Profiles and Research Repository Vocabulary
+  description: >-
+    Controlled vocabulary of the core terms exposed by the University of Western
+    Australia Profiles and Research Repository, backed by the Elsevier Pure CRIS
+    Web Service (version 524). Terms and definitions are derived from the real
+    Swagger 2.0 description published at /ws/api/524/swagger.json and reflect the
+    WS* objects and shared metadata patterns of Pure.
+  version: "524"
+  terms:
+    - term: Person
+      definition: >-
+        A researcher or staff member (WSPerson) with identifiers, name, ORCID,
+        organisation associations, profile information, and research metrics.
+      tags: [person, researcher, profile]
+    - term: ResearchOutput
+      definition: >-
+        A research output / publication (WSResearchOutput) such as a journal
+        article, book, or conference contribution, with authors, type, category,
+        publication statuses, and managing organisational unit.
+      tags: [research-output, publication, output]
+    - term: Organisation
+      definition: >-
+        An internal organisational unit (WSOrganisation) such as a school,
+        faculty, or centre, with name, type, period, and hierarchy of parents.
+      tags: [organisation, organisational-unit, structure]
+    - term: DataSet
+      definition: >-
+        A research dataset (WSDataSet) with title, DOI, coverage periods,
+        publisher, documents, and associated persons and organisations.
+      tags: [dataset, data, doi]
+    - term: Project
+      definition: >-
+        A research project (WSUPMProject) with title, status, acronym,
+        participants, period, collaborators, and managing organisational unit.
+      tags: [project, grant, research]
+    - term: Activity
+      definition: >-
+        A research-related activity (WSActivity) such as an editorial role,
+        talk, or membership, associated with persons and organisations.
+      tags: [activity, engagement]
+    - term: Award
+      definition: >-
+        A funding award (WSAward) capturing grant and funding metadata related
+        to projects, applications, and organisations.
+      tags: [award, funding, grant]
+    - term: Event
+      definition: >-
+        A scholarly event (WSEvent) such as a conference or workshop referenced
+        by research outputs and activities.
+      tags: [event, conference]
+    - term: Journal
+      definition: >-
+        A journal (WSJournal) serving as a publication venue for research
+        outputs, with title, ISSN, and publisher.
+      tags: [journal, venue]
+    - term: Classification
+      definition: >-
+        A classified term (WSClassification) drawn from a Pure classification
+        scheme, expressed as a URI plus localized term text.
+      tags: [classification, taxonomy, controlled-value]
+    - term: ListResult
+      definition: >-
+        The standard collection envelope (WS*ListResult) returning count,
+        pageInformation, navigationLinks, and the items array.
+      tags: [pagination, envelope, collection]
+    - term: pureId
+      definition: Internal numeric identifier assigned by Pure to every object.
+      tags: [identifier, internal]
+    - term: uuid
+      definition: Globally unique identifier (UUID) for an object, stable across systems.
+      tags: [identifier, uuid]
+    - term: apiKey
+      definition: >-
+        API key credential required for all requests, supplied either as a
+        query parameter (apiKey) or HTTP header (api-key).
+      tags: [security, authentication, api-key]

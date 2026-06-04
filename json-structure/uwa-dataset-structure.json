@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/uwa/main/json-structure/uwa-dataset-structure.json",
+  "name": "WSDataSet",
+  "type": "object",
+  "description": "JSON Structure description of the WSDataSet object from the UWA Pure Web Service 524.",
+  "properties": {
+    "pureId": {
+      "type": "int64"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "externalIdSource": {
+      "type": "string"
+    },
+    "externallyManaged": {
+      "type": "boolean"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "renderings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSHtmlRendering"
+      }
+    },
+    "title": {
+      "type": "object",
+      "name": "WSLocalizedString"
+    },
+    "type": {
+      "type": "object",
+      "name": "WSClassification"
+    },
+    "descriptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSClassifiedLocalizedValue"
+      }
+    },
+    "temporalCoveragePeriod": {
+      "type": "object",
+      "name": "WSCompoundDateRange"
+    },
+    "dataProductionPeriod": {
+      "type": "object",
+      "name": "WSCompoundDateRange"
+    },
+    "classifiedSources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSClassifiedValue"
+      }
+    },
+    "geographicalCoverage": {
+      "type": "object",
+      "name": "WSLocalizedString"
+    },
+    "geoLocation": {
+      "type": "object",
+      "name": "WSGeoLocation"
+    },
+    "personAssociations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSClassifiedDataSetPersonAssociation"
+      }
+    },
+    "managingOrganisationalUnit": {
+      "type": "object",
+      "name": "WSOrganisationRef"
+    },
+    "publisher": {
+      "type": "object",
+      "name": "WSPublisherRef"
+    },
+    "doi": {
+      "type": "string"
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSDataSetDocument"
+      }
+    },
+    "physicalDatas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSDataSetPhysicalData"
+      }
+    },
+    "contactPerson": {
+      "type": "object",
+      "name": "WSPersonRef"
+    },
+    "legalConditions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSDataSetLegalCondition"
+      }
+    },
+    "organisationalUnits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSOrganisationRef"
+      }
+    },
+    "externalOrganisations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSExternalOrganisationRef"
+      }
+    },
+    "publicationDate": {
+      "type": "object",
+      "name": "WSCompoundDate"
+    },
+    "openAccessPermission": {
+      "type": "object",
+      "name": "WSClassification"
+    },
+    "relatedDataSets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSDataSetRef"
+      }
+    },
+    "relatedProjects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSUPMProjectRef"
+      }
+    },
+    "relatedResearchOutputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSResearchOutputRef"
+      }
+    },
+    "relatedActivities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSActivityRef"
+      }
+    },
+    "relatedPressMedia": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSPressMediaRef"
+      }
+    },
+    "relatedStudentThesis": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSStudentThesisRef"
+      }
+    },
+    "relatedImpacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSImpactRef"
+      }
+    },
+    "relatedPrizes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSPrizeRef"
+      }
+    },
+    "relatedEquipment": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSEquipmentRef"
+      }
+    },
+    "natureTypes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSClassification"
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSLink"
+      }
+    },
+    "workflow": {
+      "type": "object",
+      "name": "WSWorkflow"
+    },
+    "keywordGroups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "name": "WSKeywordGroup"
+      }
+    },
+    "visibility": {
+      "type": "object",
+      "name": "WSVisibility"
+    },
+    "confidential": {
+      "type": "boolean"
+    },
+    "info": {
+      "type": "object",
+      "name": "WSContentInformation"
+    },
+    "openAccessEmbargoMonths": {
+      "type": "int64"
+    },
+    "openAccessEmbargoDate": {
+      "type": "date-time"
+    }
+  }
+}
