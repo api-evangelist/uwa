@@ -1,0 +1,83 @@
+---
+aid: uwa
+name: University of Western Australia
+description: >-
+  The University of Western Australia (UWA) is a public research university in
+  Perth, Western Australia, and ranked #80 in the QS World University Rankings
+  2025. Its public developer/API footprint is modest and primarily institutional:
+  UWA operates an Azure API Management developer portal where APIs and products
+  are published and consumed via API keys behind a sign-in, and exposes an
+  Elsevier Pure CRIS Web Service for its Profiles and Research Repository that
+  returns research outputs, people, projects, and related metadata via an
+  API-key-protected REST interface. Most other interfaces are gated behind
+  institutional affiliation or federated identity rather than open self-service.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/uwa/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Research
+  - Australia
+  - Perth
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: uwa:developer-portal
+    name: UWA Developer Portal (Azure API Management)
+    description: >-
+      UWA's developer portal, built on Microsoft Azure API Management, where
+      published APIs and products can be discovered, tried interactively, and
+      subscribed to for API keys. The catalog of products and APIs is presented
+      behind a JavaScript app and sign-in, so individual endpoints are not
+      publicly enumerable without an account.
+    humanURL: https://api-portal.uwa.edu.au/
+    baseURL: https://api-portal.uwa.edu.au/
+    tags: [ API Management, Developer Portal, Azure, Keys ]
+    properties:
+      - type: Documentation
+        url: https://api-portal.uwa.edu.au/
+      - type: SignUp
+        url: https://api-portal.uwa.edu.au/signup
+  - aid: uwa:research-repository
+    name: UWA Profiles and Research Repository (Pure CRIS Web Service)
+    description: >-
+      Elsevier Pure CRIS Web Service backing the UWA Profiles and Research
+      Repository, exposing research outputs, persons, organisations, projects,
+      activities, and applications as REST resources. Access requires an API key
+      generated in the Pure administrator interface; the versioned web service
+      (5.24 / "524") publishes interactive API documentation.
+    humanURL: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
+    baseURL: https://api.research-repository.uwa.edu.au/ws/api/524
+    tags: [ Research, Repository, Pure, CRIS, Metadata ]
+    properties:
+      - type: Documentation
+        url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
+      - type: Website
+        url: https://research-repository.uwa.edu.au/
+common:
+  - type: Website
+    url: https://www.uwa.edu.au/
+  - type: GitHub
+    url: https://github.com/uwa
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/the-university-of-western-australia/
+  - type: Twitter
+    url: https://twitter.com/uwanews
+  - type: DeveloperPortal
+    url: https://api-portal.uwa.edu.au/
+  - type: Plans
+    url: plans/uwa-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/uwa-rate-limits.yml
+  - type: FinOps
+    url: finops/uwa-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

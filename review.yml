@@ -1,0 +1,40 @@
+---
+name: University of Western Australia
+description: University of Western Australia public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/uwa/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 2
+    summary: >-
+      Verified live: an Azure API Management developer portal at
+      api-portal.uwa.edu.au (HTTP 200, including /products) whose API catalog is
+      gated behind a JavaScript app and sign-in, and an Elsevier Pure CRIS Web
+      Service for the Profiles and Research Repository (api.research-repository.uwa.edu.au,
+      version 524, HTTP 200) that requires an API key. The github.com/uwa org
+      exists but has no public repositories. No public open-data portal, course/
+      timetable, or OAI-PMH endpoint was confirmed. No endpoints were fabricated;
+      gated/JS-rendered surfaces are described honestly.
+    endpoints:
+      - url: https://api-portal.uwa.edu.au/
+        status: 200
+        note: Azure API Management developer portal landing page; JS-rendered, sign-in required.
+      - url: https://api-portal.uwa.edu.au/products
+        status: 200
+        note: Products list page exists but content is gated behind the SPA/sign-in.
+      - url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
+        status: 200
+        note: Elsevier Pure CRIS Web Service docs; API key required for calls.
+      - url: https://research-repository.uwa.edu.au/
+        status: 200
+        note: UWA Profiles and Research Repository public discovery front end.
+      - url: https://github.com/uwa
+        status: 200
+        note: Official UWA GitHub org (Perth); no public repositories at review time.
+      - url: https://www.uwa.edu.au/
+        status: 200
+        note: Official university website.
+      - url: https://software.webservices.uwa.edu.au/
+        status: 520
+        note: Referenced software web services host did not resolve cleanly (Cloudflare 520).
