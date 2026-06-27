@@ -41,7 +41,7 @@ apis:
     properties:
       - type: Documentation
         url: https://api-portal.uwa.edu.au/
-      - type: SignUp
+      - type: Signup
         url: https://api-portal.uwa.edu.au/signup
   - aid: uwa:research-repository
     name: UWA Profiles and Research Repository (Pure CRIS Web Service)
