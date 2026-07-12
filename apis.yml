@@ -74,6 +74,10 @@ apis:
       - type: x-json-ld-context
         url: json-ld/uwa-context.jsonld
 common:
+  - type: DomainSecurity
+    url: security/uwa-domain-security.yml
+  - type: Authentication
+    url: authentication/uwa-authentication.yml
   - type: Website
     url: https://www.uwa.edu.au/
   - type: GitHub

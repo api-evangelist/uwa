@@ -1,0 +1,22 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/uwa-research-repository.yaml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: apiKey
+  type: apiKey
+  in: query
+  parameter: apiKey
+  sources:
+  - openapi/uwa-research-repository.yaml
+- name: api-key
+  type: apiKey
+  in: header
+  parameter: api-key
+  sources:
+  - openapi/uwa-research-repository.yaml
