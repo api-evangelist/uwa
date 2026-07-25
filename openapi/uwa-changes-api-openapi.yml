@@ -1,0 +1,225 @@
+openapi: 3.0.3
+info:
+  title: Pure Web Service 524 activities changes API
+  description: 'This is the Pure Web Service. Listed below are all available endpoints, along with a short description.<br/><br/>In order to use the Pure Web Service, you must enter an API key. These are generated in the Administrator tab of Pure, and issued with a given set of available endpoints.<br/>To enter your API key and begin your use, press the ''Authorize'' button to at the top of this page. <br/>You are then presented with two options for entering the API key: <ol><li>Use the API key in query format.</li><li>Use the API key in a header.</li><br/> For further documentation, see <a href="documentation/Default.htm">Web Service Documentation</a>.<br/><br/>This is final version of the legacy versioned Web Service, and will be available until otherwise announced in release notes.<br/>Please note that when doing new development it is advised to investigate the new Pure API - to see if relevant endpoints are available for your use case.<br/><em>If enabled</em>, you can can see documentation here <a href="../..">API Documentation</a>.<br/><br/>'
+  version: '524'
+  contact:
+    name: Elsevier
+servers:
+- url: https://api.research-repository.uwa.edu.au/ws/api/524
+security:
+- apiKey: []
+- api-key: []
+tags:
+- name: changes
+paths:
+  /changes/{tokenOrDate}:
+    get:
+      tags:
+      - changes
+      summary: Get changes
+      description: Get changes from specific audit resumption token or date in the <b>yyyy-MM-dd</b> or <b>yyyy-MM-dd_HH-mm-ss</b> format (e.g. 2017-04-24 or 2017-04-24_13-30-00) and onwards. In this endpoint a new event type exists that is called 'metricValueChange'. This indicated metric values has changed for the listed content. A change of metric values are no longer considered a change of the pure content item and contentChange events will no longer be generated when metrics values are updated. As a consumer you can choose to ignore the metric updates and only react upon the contentChange events. Or if its important to listen for metric values changes, listen for both ContentChange and metricValueChange.
+      operationId: getChanges
+      security:
+      - apiKey: []
+      - api-key: []
+      parameters:
+      - name: tokenOrDate
+        in: path
+        required: true
+        description: Resumption token or date (in yyyy-MM-dd or yyyy-MM-dd_HH-mm-ss format) of the earliest audit entry
+        schema:
+          type: string
+      - name: fields
+        in: query
+        required: false
+        description: Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#fields_param">Read more...</a>
+        schema:
+          type: array
+          items:
+            type: string
+      - name: order
+        in: query
+        required: false
+        description: 'Specify the ordering of content in the result. Default: ID ascending. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#order_param">Read more...</a>'
+        schema:
+          type: array
+          items:
+            type: string
+      - name: orderBy
+        in: query
+        required: false
+        description: 'Choose the directionality of the result. If set, this will override direction on ''Order''. Read more about order elements and direction here: <a href="documentation/Content/Topics/Parameter_Descriptions.htm#order_param">Read more...</a>'
+        schema:
+          type: string
+          enum:
+          - ascending
+          - descending
+      - name: locale
+        in: query
+        required: false
+        description: Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#locale_param">Read more...</a>
+        schema:
+          type: array
+          enum:
+          - en_GB
+          items:
+            type: string
+      - name: fallbackLocale
+        in: query
+        required: false
+        description: Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param">Read more...</a>
+        schema:
+          type: array
+          items:
+            type: string
+      - name: rendering
+        in: query
+        required: false
+        description: HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param">Read more...</a>
+        schema:
+          type: array
+          items:
+            type: string
+      - name: linkingStrategy
+        in: query
+        required: false
+        description: Specify the linking strategy to use when creating HTML renderings. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#linkingStrategy_param">Read more...</a>
+        schema:
+          type: string
+          enum:
+          - documentLinkingStrategy
+          - portalLinkingStrategy
+          - ddpLinkingStrategy
+          - noLinkingStrategy
+          - externalSourceIdLinkingStrategy
+      - name: returnUsedContent
+        in: query
+        required: false
+        description: If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param">Read more...</a>
+        schema:
+          type: boolean
+      - name: navigationLink
+        in: query
+        required: false
+        description: 'Include navigation links for paging and content. Default: true. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param">Read more...</a>'
+        schema:
+          type: boolean
+      - name: size
+        in: query
+        required: false
+        description: 'Enter the number of results per window. Default: 10. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param">Read more...</a>'
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        required: false
+        description: 'Enter the offset into the total result set where items should be returned from. Default: 0. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param">Read more...</a>'
+        schema:
+          type: integer
+      - name: page
+        in: query
+        required: false
+        description: Enter the desired page number. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param">Read more...</a>
+        schema:
+          type: integer
+      - name: pageSize
+        in: query
+        required: false
+        description: Enter the desired number of results per page. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param">Read more...</a>
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/xml:
+              schema: &id001
+                $ref: '#/components/schemas/WSChangeListResult'
+            application/json:
+              schema: *id001
+        '404':
+          description: Resource not found
+          content:
+            application/xml:
+              schema: &id002
+                $ref: '#/components/schemas/WSErrorResult'
+            application/json:
+              schema: *id002
+components:
+  schemas:
+    WSErrorResult:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+      xml:
+        name: error
+    WSPageInformation:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+      xml:
+        name: pageInformation
+    WSAbstractChange:
+      type: object
+    WSNavigationLink:
+      type: object
+      properties:
+        ref:
+          type: string
+          xml:
+            attribute: true
+        href:
+          type: string
+          xml:
+            attribute: true
+    WSChangeListResult:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        pageInformation:
+          $ref: '#/components/schemas/WSPageInformation'
+        navigationLinks:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: navigationLink
+            $ref: '#/components/schemas/WSNavigationLink'
+        resumptionToken:
+          type: string
+        moreChanges:
+          type: boolean
+        items:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            $ref: '#/components/schemas/WSAbstractChange'
+      xml:
+        name: result
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: apiKey
+      in: query
+    api-key:
+      type: apiKey
+      name: api-key
+      in: header

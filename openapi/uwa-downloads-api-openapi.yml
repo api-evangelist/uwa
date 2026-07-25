@@ -1,0 +1,372 @@
+openapi: 3.0.3
+info:
+  title: Pure Web Service 524 activities downloads API
+  description: 'This is the Pure Web Service. Listed below are all available endpoints, along with a short description.<br/><br/>In order to use the Pure Web Service, you must enter an API key. These are generated in the Administrator tab of Pure, and issued with a given set of available endpoints.<br/>To enter your API key and begin your use, press the ''Authorize'' button to at the top of this page. <br/>You are then presented with two options for entering the API key: <ol><li>Use the API key in query format.</li><li>Use the API key in a header.</li><br/> For further documentation, see <a href="documentation/Default.htm">Web Service Documentation</a>.<br/><br/>This is final version of the legacy versioned Web Service, and will be available until otherwise announced in release notes.<br/>Please note that when doing new development it is advised to investigate the new Pure API - to see if relevant endpoints are available for your use case.<br/><em>If enabled</em>, you can can see documentation here <a href="../..">API Documentation</a>.<br/><br/>'
+  version: '524'
+  contact:
+    name: Elsevier
+servers:
+- url: https://api.research-repository.uwa.edu.au/ws/api/524
+security:
+- apiKey: []
+- api-key: []
+tags:
+- name: downloads
+paths:
+  /downloads/{id}:
+    get:
+      tags:
+      - downloads
+      summary: Lists a summary of downloads
+      description: Lists all downloads in the Pure instance. If you need to filter the downloads returned, see the POST version which supports additional filtering.
+      operationId: listDownloads
+      security:
+      - apiKey: []
+      - api-key: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Name of the content in Pure to fetch download statistic for, e.g. ResearchOutput, Activity, Award, Project, Application
+        schema:
+          type: string
+      - name: idClassificationType
+        in: query
+        required: false
+        description: Give an optional classification type used to specify which type of ID should be used in the match. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param">Read more...</a>
+        schema:
+          type: string
+      - name: idClassification
+        in: query
+        required: false
+        description: Give an optional classification used to specify which type of ID should be used in the match. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param">Read more...</a>
+        schema:
+          type: string
+      - name: fields
+        in: query
+        required: false
+        description: Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#fields_param">Read more...</a>
+        schema:
+          type: array
+          items:
+            type: string
+      - name: locale
+        in: query
+        required: false
+        description: Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#locale_param">Read more...</a>
+        schema:
+          type: array
+          enum:
+          - en_GB
+          items:
+            type: string
+      - name: fallbackLocale
+        in: query
+        required: false
+        description: Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param">Read more...</a>
+        schema:
+          type: array
+          items:
+            type: string
+      - name: rendering
+        in: query
+        required: false
+        description: HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param">Read more...</a>
+        schema:
+          type: array
+          items:
+            type: string
+      - name: returnUsedContent
+        in: query
+        required: false
+        description: If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param">Read more...</a>
+        schema:
+          type: boolean
+      - name: navigationLink
+        in: query
+        required: false
+        description: 'Include navigation links for paging and content. Default: true. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param">Read more...</a>'
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/xml:
+              schema: &id001
+                $ref: '#/components/schemas/WSDownloadInformationCountListResult'
+            application/json:
+              schema: *id001
+  /downloads:
+    post:
+      tags:
+      - downloads
+      summary: Lists a summary of downloads
+      description: Lists all downloads in the Pure instance. If you need to filter the downloads returned, see the POST version which supports additional filtering.
+      operationId: listDownloads_1
+      security:
+      - apiKey: []
+      - api-key: []
+      requestBody:
+        content:
+          application/xml:
+            schema: &id002
+              $ref: '#/components/schemas/WSDownloadsQuery'
+          application/json:
+            schema: *id002
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/xml:
+              schema: &id003
+                $ref: '#/components/schemas/WSDownloadInformationCountListResult'
+            application/json:
+              schema: *id003
+  /downloads-meta/family:
+    get:
+      tags:
+      - downloads
+      summary: Lists available content types (families)
+      description: Lists all content types available to the download information endpoint. These values can be used by the family parameter.
+      operationId: getAvailableFamilies
+      security:
+      - apiKey: []
+      - api-key: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/xml:
+              schema: &id004
+                $ref: '#/components/schemas/WSStringListResult'
+            application/json:
+              schema: *id004
+components:
+  schemas:
+    WSPageInformation:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+      xml:
+        name: pageInformation
+    WSDownloadsQuery:
+      type: object
+      required:
+      - family
+      properties:
+        uuids:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: uuid
+        family:
+          type: string
+        accessTimeBeforeDate:
+          type: string
+          format: date-time
+        accessTimeAfterDate:
+          type: string
+          format: date-time
+        size:
+          type: integer
+          format: int32
+        offset:
+          type: integer
+          format: int32
+        navigationLink:
+          type: boolean
+      xml:
+        name: downloadsQuery
+    WSClassification:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          format: int64
+          xml:
+            attribute: true
+        externalId:
+          type: string
+          xml:
+            attribute: true
+        externalIdSource:
+          type: string
+          xml:
+            attribute: true
+        externallyManaged:
+          type: boolean
+          xml:
+            attribute: true
+        uri:
+          type: string
+          xml:
+            attribute: true
+        term:
+          $ref: '#/components/schemas/WSLocalizedString'
+        disabled:
+          type: boolean
+          xml:
+            attribute: true
+        description:
+          $ref: '#/components/schemas/WSLocalizedString'
+        classificationRelations:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: classificationRelation
+            $ref: '#/components/schemas/WSClassificationRelation'
+    WSLocalizedText:
+      type: object
+      properties:
+        locale:
+          type: string
+          xml:
+            attribute: true
+        value:
+          type: string
+    WSNavigationLink:
+      type: object
+      properties:
+        ref:
+          type: string
+          xml:
+            attribute: true
+        href:
+          type: string
+          xml:
+            attribute: true
+    WSDownloadInformationCountListResult:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        pageInformation:
+          $ref: '#/components/schemas/WSPageInformation'
+        navigationLinks:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: navigationLink
+            $ref: '#/components/schemas/WSNavigationLink'
+        items:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            $ref: '#/components/schemas/WSDownloadInformationCount'
+      xml:
+        name: result
+    WSLocalizedString:
+      type: object
+      properties:
+        formatted:
+          type: boolean
+          xml:
+            attribute: true
+        text:
+          type: array
+          items:
+            xml:
+              name: text
+            $ref: '#/components/schemas/WSLocalizedText'
+    WSDownloadInformationCount:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          format: int64
+        contentRef:
+          $ref: '#/components/schemas/WSContentRef'
+        downloadCount:
+          type: integer
+          format: int32
+      xml:
+        name: download
+    WSClassificationRelation:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          format: int64
+          xml:
+            attribute: true
+        externalId:
+          type: string
+          xml:
+            attribute: true
+        externalIdSource:
+          type: string
+          xml:
+            attribute: true
+        externallyManaged:
+          type: boolean
+          xml:
+            attribute: true
+        relatedTo:
+          $ref: '#/components/schemas/WSClassification'
+        relationType:
+          $ref: '#/components/schemas/WSClassification'
+    WSStringListResult:
+      type: object
+      properties:
+        items:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: item
+        count:
+          type: integer
+          format: int32
+      xml:
+        name: result
+    WSContentRef:
+      type: object
+      properties:
+        uuid:
+          type: string
+          xml:
+            attribute: true
+        link:
+          $ref: '#/components/schemas/WSNavigationLink'
+        name:
+          $ref: '#/components/schemas/WSLocalizedString'
+        type:
+          $ref: '#/components/schemas/WSClassification'
+        externalId:
+          type: string
+          xml:
+            attribute: true
+        externalIdSource:
+          type: string
+          xml:
+            attribute: true
+        externallyManaged:
+          type: boolean
+          xml:
+            attribute: true
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: apiKey
+      in: query
+    api-key:
+      type: apiKey
+      name: api-key
+      in: header

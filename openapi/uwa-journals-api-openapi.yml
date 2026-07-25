@@ -1,0 +1,1261 @@
+openapi: 3.0.3
+info:
+  title: Pure Web Service 524 activities journals API
+  description: 'This is the Pure Web Service. Listed below are all available endpoints, along with a short description.<br/><br/>In order to use the Pure Web Service, you must enter an API key. These are generated in the Administrator tab of Pure, and issued with a given set of available endpoints.<br/>To enter your API key and begin your use, press the ''Authorize'' button to at the top of this page. <br/>You are then presented with two options for entering the API key: <ol><li>Use the API key in query format.</li><li>Use the API key in a header.</li><br/> For further documentation, see <a href="documentation/Default.htm">Web Service Documentation</a>.<br/><br/>This is final version of the legacy versioned Web Service, and will be available until otherwise announced in release notes.<br/>Please note that when doing new development it is advised to investigate the new Pure API - to see if relevant endpoints are available for your use case.<br/><em>If enabled</em>, you can can see documentation here <a href="../..">API Documentation</a>.<br/><br/>'
+  version: '524'
+  contact:
+    name: Elsevier
+servers:
+- url: https://api.research-repository.uwa.edu.au/ws/api/524
+security:
+- apiKey: []
+- api-key: []
+tags:
+- name: journals
+paths:
+  /journals:
+    get:
+      tags:
+      - journals
+      summary: Lists all journals
+      description: Lists all journals in the Pure instance. If you need to filter the journals returned, see the POST version which supports additional filtering.
+      operationId: listJournals
+      security:
+      - apiKey: []
+      - api-key: []
+      parameters:
+      - name: q
+        in: query
+        required: false
+        description: Free text search string using Lucene query syntax. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#q_param">Read more...</a>
+        schema:
+          type: string
+      - name: fields
+        in: query
+        required: false
+        description: Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#fields_param">Read more...</a>
+        schema:
+          type: array
+          items:
+            type: string
+      - name: order
+        in: query
+        required: false
+        description: 'Specify the ordering of content in the result. Default: ID ascending. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#order_param">Read more...</a>'
+        schema:
+          type: array
+          enum:
+          - issn
+          - rating
+          - modified
+          - title
+          items:
+            type: string
+      - name: orderBy
+        in: query
+        required: false
+        description: 'Choose the directionality of the result. If set, this will override direction on ''Order''. Read more about order elements and direction here: <a href="documentation/Content/Topics/Parameter_Descriptions.htm#order_param">Read more...</a>'
+        schema:
+          type: string
+          enum:
+          - ascending
+          - descending
+      - name: locale
+        in: query
+        required: false
+        description: Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#locale_param">Read more...</a>
+        schema:
+          type: array
+          enum:
+          - en_GB
+          items:
+            type: string
+      - name: fallbackLocale
+        in: query
+        required: false
+        description: Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param">Read more...</a>
+        schema:
+          type: array
+          items:
+            type: string
+      - name: rendering
+        in: query
+        required: false
+        description: HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param">Read more...</a>
+        schema:
+          type: array
+          enum:
+          - ddp_metadata
+          - system
+          - expertKeywordGroupsPortal
+          - short
+          - long
+          items:
+            type: string
+      - name: linkingStrategy
+        in: query
+        required: false
+        description: Specify the linking strategy to use when creating HTML renderings. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#linkingStrategy_param">Read more...</a>
+        schema:
+          type: string
+          enum:
+          - documentLinkingStrategy
+          - portalLinkingStrategy
+          - ddpLinkingStrategy
+          - noLinkingStrategy
+          - externalSourceIdLinkingStrategy
+      - name: returnUsedContent
+        in: query
+        required: false
+        description: If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param">Read more...</a>
+        schema:
+          type: boolean
+      - name: navigationLink
+        in: query
+        required: false
+        description: 'Include navigation links for paging and content. Default: true. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param">Read more...</a>'
+        schema:
+          type: boolean
+      - name: size
+        in: query
+        required: false
+        description: 'Enter the number of results per window. Default: 10. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param">Read more...</a>'
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        required: false
+        description: 'Enter the offset into the total result set where items should be returned from. Default: 0. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param">Read more...</a>'
+        schema:
+          type: integer
+      - name: page
+        in: query
+        required: false
+        description: Enter the desired page number. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param">Read more...</a>
+        schema:
+          type: integer
+      - name: pageSize
+        in: query
+        required: false
+        description: Enter the desired number of results per page. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param">Read more...</a>
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/xml:
+              schema: &id001
+                $ref: '#/components/schemas/WSJournalListResult'
+            application/json:
+              schema: *id001
+    post:
+      tags:
+      - journals
+      summary: Complex operation for journals
+      description: Lists journals in the Pure instance, similar to the GET version, instead of using parameters to alter the response, an XML document is posted with the request. The XML document contains fields for all the parameters available for the GET version, but also additional filtering options. For documentation of the XML format see <a href="documentation/Content/Topics/CT_Journal.htm#post_xml">Journal documentation</a>.
+      operationId: listJournals_1
+      security:
+      - apiKey: []
+      - api-key: []
+      requestBody:
+        content:
+          application/xml:
+            schema: &id002
+              $ref: '#/components/schemas/WSJournalsQuery'
+          application/json:
+            schema: *id002
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/xml:
+              schema: &id003
+                $ref: '#/components/schemas/WSJournalListResult'
+            application/json:
+              schema: *id003
+  /journals-meta/orderings:
+    get:
+      tags:
+      - journals
+      summary: Lists available orderings
+      description: Lists all orderings available to the journal endpoint. These values can be used by the order parameter.
+      operationId: getAvailableOrderings_15
+      security:
+      - apiKey: []
+      - api-key: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/xml:
+              schema: &id004
+                $ref: '#/components/schemas/WSOrderingsList'
+            application/json:
+              schema: *id004
+  /journals-meta/renderings:
+    get:
+      tags:
+      - journals
+      summary: Lists available renderings
+      description: Lists all renderings available to the journal endpoint. These values can be used by the rendering parameter.
+      operationId: getAvailableRenderings_15
+      security:
+      - apiKey: []
+      - api-key: []
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/xml:
+              schema: &id005
+                $ref: '#/components/schemas/WSRenderingsList'
+            application/json:
+              schema: *id005
+  /journals/{id}:
+    get:
+      tags:
+      - journals
+      summary: Get journal
+      description: Get journal with specific ID (path parameter).
+      operationId: getJournal
+      security:
+      - apiKey: []
+      - api-key: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ID of the desired journal
+        schema:
+          type: string
+      - name: idClassificationType
+        in: query
+        required: false
+        description: Give an optional classification type used to specify which type of ID should be used in the match. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param">Read more...</a>
+        schema:
+          type: string
+      - name: idClassification
+        in: query
+        required: false
+        description: Give an optional classification used to specify which type of ID should be used in the match. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param">Read more...</a>
+        schema:
+          type: string
+      - name: fields
+        in: query
+        required: false
+        description: Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#fields_param">Read more...</a>
+        schema:
+          type: array
+          items:
+            type: string
+      - name: locale
+        in: query
+        required: false
+        description: Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#locale_param">Read more...</a>
+        schema:
+          type: array
+          enum:
+          - en_GB
+          items:
+            type: string
+      - name: fallbackLocale
+        in: query
+        required: false
+        description: Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param">Read more...</a>
+        schema:
+          type: array
+          items:
+            type: string
+      - name: rendering
+        in: query
+        required: false
+        description: HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param">Read more...</a>
+        schema:
+          type: array
+          enum:
+          - ddp_metadata
+          - system
+          - expertKeywordGroupsPortal
+          - short
+          - long
+          items:
+            type: string
+      - name: returnUsedContent
+        in: query
+        required: false
+        description: If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param">Read more...</a>
+        schema:
+          type: boolean
+      - name: navigationLink
+        in: query
+        required: false
+        description: 'Include navigation links for paging and content. Default: true. <a href="documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param">Read more...</a>'
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/xml:
+              schema: &id006
+                $ref: '#/components/schemas/WSJournal'
+            application/json:
+              schema: *id006
+        '404':
+          description: Resource not found
+          content:
+            application/xml:
+              schema: &id007
+                $ref: '#/components/schemas/WSErrorResult'
+            application/json:
+              schema: *id007
+components:
+  schemas:
+    WSPageInformation:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+      xml:
+        name: pageInformation
+    WSPublisherRef:
+      type: object
+      properties:
+        uuid:
+          type: string
+          xml:
+            attribute: true
+        link:
+          $ref: '#/components/schemas/WSNavigationLink'
+        name:
+          $ref: '#/components/schemas/WSLocalizedString'
+        type:
+          $ref: '#/components/schemas/WSClassification'
+        externalId:
+          type: string
+          xml:
+            attribute: true
+        externalIdSource:
+          type: string
+          xml:
+            attribute: true
+        externallyManaged:
+          type: boolean
+          xml:
+            attribute: true
+        ref:
+          $ref: '#/components/schemas/WSPublisher'
+    WSSherpaRomeoPolicy:
+      type: object
+      properties:
+        openAccessProhibited:
+          type: boolean
+        openAccessPermissions:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: openAccessPermission
+            $ref: '#/components/schemas/WSSherpaRomeoOpenAccessPermission'
+        publisherPolicies:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: publisherPolicy
+        sherpaRomeoUri:
+          type: string
+        lastUpdatedDate:
+          type: string
+          format: date-time
+    WSClassifiedValue:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          format: int64
+          xml:
+            attribute: true
+        externalId:
+          type: string
+          xml:
+            attribute: true
+        externalIdSource:
+          type: string
+          xml:
+            attribute: true
+        externallyManaged:
+          type: boolean
+          xml:
+            attribute: true
+        value:
+          $ref: '#/components/schemas/WSValue'
+        classification:
+          xml:
+            name: type
+          $ref: '#/components/schemas/WSClassification'
+    WSTemporalISSN:
+      type: object
+      properties:
+        issn:
+          type: string
+        startDate:
+          type: string
+          xml:
+            attribute: true
+        endDate:
+          type: string
+          xml:
+            attribute: true
+    WSUuidList:
+      type: object
+      properties:
+        family:
+          type: string
+          xml:
+            attribute: true
+        uuids:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: uuid
+    WSKeyword:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          format: int64
+          xml:
+            attribute: true
+        locale:
+          type: string
+          xml:
+            attribute: true
+        freeKeywords:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: freeKeyword
+    WSJournal:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          format: int64
+          xml:
+            attribute: true
+        externalId:
+          type: string
+          xml:
+            attribute: true
+        externalIdSource:
+          type: string
+          xml:
+            attribute: true
+        externallyManaged:
+          type: boolean
+          xml:
+            attribute: true
+        uuid:
+          type: string
+          xml:
+            attribute: true
+        renderings:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: rendering
+            $ref: '#/components/schemas/WSHtmlRendering'
+        titles:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: title
+            $ref: '#/components/schemas/WSTemporalTitle'
+        type:
+          $ref: '#/components/schemas/WSClassification'
+        alternativeTitles:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: alternativeTitle
+        electronicISSNs:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: electronicISSN
+        alternativeISSNs:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: alternativeISSN
+        publisher:
+          $ref: '#/components/schemas/WSPublisherRef'
+        country:
+          $ref: '#/components/schemas/WSClassification'
+        links:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: link
+            $ref: '#/components/schemas/WSLink'
+        classifiedSources:
+          type: array
+          xml:
+            name: ids
+            wrapped: true
+          items:
+            xml:
+              name: id
+            $ref: '#/components/schemas/WSClassifiedValue'
+        doajIndexed:
+          type: boolean
+        sherpaRomeoPolicy:
+          $ref: '#/components/schemas/WSSherpaRomeoPolicy'
+        keywordGroups:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: keywordGroup
+            $ref: '#/components/schemas/WSKeywordGroup'
+        fieldOfResearchAssociations:
+          type: array
+          xml:
+            wrapped: true
+          description: Only available when the ERA module is enabled
+          items:
+            xml:
+              name: fieldOfResearchAssociation
+            $ref: '#/components/schemas/WSERA2015FieldOfResearchAssociation'
+        workflow:
+          $ref: '#/components/schemas/WSWorkflow'
+        info:
+          $ref: '#/components/schemas/WSContentInformation'
+        scopusMetrics:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: scopusMetric
+            $ref: '#/components/schemas/WSScopusMetrics'
+        issns:
+          type: array
+          items:
+            $ref: '#/components/schemas/WSTemporalISSN'
+        sherpaRomeoCustomerInformation:
+          type: string
+      xml:
+        name: journal
+    WSOrderingsList:
+      type: object
+      properties:
+        orderings:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: ordering
+      xml:
+        name: orderings
+    WSTemporalTitle:
+      type: object
+      properties:
+        title:
+          type: string
+        startDate:
+          type: string
+          xml:
+            attribute: true
+        endDate:
+          type: string
+          xml:
+            attribute: true
+    WSERA2015FieldOfResearchAssociation:
+      type: object
+      properties:
+        fieldsOfResearch:
+          xml:
+            name: fieldOfResearch
+          $ref: '#/components/schemas/WSClassification'
+        splitPercentage:
+          type: number
+          format: double
+        pureId:
+          type: integer
+          format: int64
+          xml:
+            attribute: true
+    WSClassification:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          format: int64
+          xml:
+            attribute: true
+        externalId:
+          type: string
+          xml:
+            attribute: true
+        externalIdSource:
+          type: string
+          xml:
+            attribute: true
+        externallyManaged:
+          type: boolean
+          xml:
+            attribute: true
+        uri:
+          type: string
+          xml:
+            attribute: true
+        term:
+          $ref: '#/components/schemas/WSLocalizedString'
+        disabled:
+          type: boolean
+          xml:
+            attribute: true
+        description:
+          $ref: '#/components/schemas/WSLocalizedString'
+        classificationRelations:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: classificationRelation
+            $ref: '#/components/schemas/WSClassificationRelation'
+    WSWorkflow:
+      type: object
+      properties:
+        workflowStep:
+          type: string
+          xml:
+            attribute: true
+        value:
+          $ref: '#/components/schemas/WSLocalizedString'
+    WSId:
+      type: object
+      properties:
+        id:
+          type: string
+        idSource:
+          type: string
+          xml:
+            attribute: true
+    WSClassificationRelation:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          format: int64
+          xml:
+            attribute: true
+        externalId:
+          type: string
+          xml:
+            attribute: true
+        externalIdSource:
+          type: string
+          xml:
+            attribute: true
+        externallyManaged:
+          type: boolean
+          xml:
+            attribute: true
+        relatedTo:
+          $ref: '#/components/schemas/WSClassification'
+        relationType:
+          $ref: '#/components/schemas/WSClassification'
+    WSJournalsQuery:
+      type: object
+      properties:
+        uuids:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: uuid
+        size:
+          type: integer
+          format: int32
+        offset:
+          type: integer
+          format: int32
+        linkingStrategy:
+          type: string
+        locales:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: locale
+        fallbackLocales:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: fallbackLocale
+        renderings:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: rendering
+        fields:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: field
+        orderings:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: ordering
+        returnUsedContent:
+          type: boolean
+        navigationLink:
+          type: boolean
+        ids:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: id
+        idClassification:
+          type: string
+        idClassificationType:
+          type: string
+        modifiedAfter:
+          type: string
+          format: date-time
+        modifiedBefore:
+          type: string
+          format: date-time
+        createdAfter:
+          type: string
+          format: date-time
+        createdBefore:
+          type: string
+          format: date-time
+        titles:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: title
+        excludeByTypeUri:
+          type: boolean
+        typeUris:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: typeUri
+        issns:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: issn
+        workflowSteps:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: workflowStep
+        keywordURIs:
+          type: array
+          xml:
+            name: keywordUris
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: keywordUri
+        freeKeywords:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: freeKeyword
+        searchString:
+          type: string
+      xml:
+        name: journalsQuery
+    WSScopusMetrics:
+      type: object
+      properties:
+        year:
+          type: integer
+          format: int32
+        citescore:
+          type: number
+          format: double
+        snip:
+          type: number
+          format: double
+        sjr:
+          type: number
+          format: double
+    WSErrorResult:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+      xml:
+        name: error
+    WSRenderingsList:
+      type: object
+      properties:
+        renderings:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: rendering
+      xml:
+        name: renderings
+    WSUsedContent:
+      type: object
+      properties:
+        rendering:
+          type: string
+          xml:
+            attribute: true
+        locale:
+          type: string
+          xml:
+            attribute: true
+        usedContent:
+          type: array
+          xml:
+            name: uuids
+            wrapped: true
+          items:
+            xml:
+              name: uuid
+            $ref: '#/components/schemas/WSUuidList'
+    WSKeywordGroup:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          format: int64
+          xml:
+            attribute: true
+        externalId:
+          type: string
+          xml:
+            attribute: true
+        externalIdSource:
+          type: string
+          xml:
+            attribute: true
+        externallyManaged:
+          type: boolean
+          xml:
+            attribute: true
+        logicalName:
+          type: string
+          xml:
+            attribute: true
+        type:
+          $ref: '#/components/schemas/WSClassification'
+        keywordContainers:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: keywordContainer
+            $ref: '#/components/schemas/WSKeywordContainer'
+    WSNavigationLink:
+      type: object
+      properties:
+        ref:
+          type: string
+          xml:
+            attribute: true
+        href:
+          type: string
+          xml:
+            attribute: true
+    WSContentInformation:
+      type: object
+      properties:
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        modifiedBy:
+          type: string
+        modifiedDate:
+          type: string
+          format: date-time
+        portalUrl:
+          type: string
+        prettyUrlIdentifiers:
+          type: array
+          xml:
+            name: prettyURLIdentifiers
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: prettyURLIdentifier
+        additionalExternalIds:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: id
+            $ref: '#/components/schemas/WSId'
+        usedContent:
+          type: array
+          xml:
+            name: usedContents
+            wrapped: true
+          items:
+            xml:
+              name: usedContent
+            $ref: '#/components/schemas/WSUsedContent'
+        previousUuids:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: previousUuid
+    WSLink:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          format: int64
+          xml:
+            attribute: true
+        externalId:
+          type: string
+          xml:
+            attribute: true
+        externalIdSource:
+          type: string
+          xml:
+            attribute: true
+        externallyManaged:
+          type: boolean
+          xml:
+            attribute: true
+        url:
+          type: string
+        description:
+          $ref: '#/components/schemas/WSLocalizedString'
+        linkType:
+          $ref: '#/components/schemas/WSClassification'
+    WSKeywordContainer:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          format: int64
+          xml:
+            attribute: true
+        structuredKeyword:
+          $ref: '#/components/schemas/WSClassification'
+        freeKeywords:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: freeKeyword
+            $ref: '#/components/schemas/WSKeyword'
+    WSHtmlRendering:
+      type: object
+      properties:
+        format:
+          type: string
+          xml:
+            attribute: true
+        locale:
+          type: string
+          xml:
+            attribute: true
+        error:
+          type: boolean
+          xml:
+            attribute: true
+        html:
+          type: string
+    WSLocalizedText:
+      type: object
+      properties:
+        locale:
+          type: string
+          xml:
+            attribute: true
+        value:
+          type: string
+    WSPublisher:
+      type: object
+      properties:
+        pureId:
+          type: integer
+          format: int64
+          xml:
+            attribute: true
+        externalId:
+          type: string
+          xml:
+            attribute: true
+        externalIdSource:
+          type: string
+          xml:
+            attribute: true
+        externallyManaged:
+          type: boolean
+          xml:
+            attribute: true
+        uuid:
+          type: string
+          xml:
+            attribute: true
+        renderings:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: rendering
+            $ref: '#/components/schemas/WSHtmlRendering'
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/WSClassification'
+        alternativeNames:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: alternativeName
+        keywordGroups:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: keywordGroup
+            $ref: '#/components/schemas/WSKeywordGroup'
+        countries:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: country
+            $ref: '#/components/schemas/WSClassification'
+        workflow:
+          $ref: '#/components/schemas/WSWorkflow'
+        info:
+          $ref: '#/components/schemas/WSContentInformation'
+      xml:
+        name: publisher
+    WSValue:
+      type: object
+      properties:
+        formatted:
+          type: boolean
+          xml:
+            attribute: true
+        value:
+          type: string
+    WSLocalizedString:
+      type: object
+      properties:
+        formatted:
+          type: boolean
+          xml:
+            attribute: true
+        text:
+          type: array
+          items:
+            xml:
+              name: text
+            $ref: '#/components/schemas/WSLocalizedText'
+    WSSherpaRomeoOpenAccessPermission:
+      type: object
+      properties:
+        articleVersion:
+          type: string
+          enum:
+          - submitted
+          - accepted
+          - published
+        licenses:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: license
+        conditions:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: condition
+        prerequisites:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: prerequisite
+        funderPrerequisites:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: funderPrerequisite
+        subjectPrerequisites:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: subjectPrerequisite
+        locations:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: location
+        publisherDeposits:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: publisherDeposit
+        additionalFee:
+          type: boolean
+        embargo:
+          type: string
+    WSJournalListResult:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        pageInformation:
+          $ref: '#/components/schemas/WSPageInformation'
+        navigationLinks:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            xml:
+              name: navigationLink
+            $ref: '#/components/schemas/WSNavigationLink'
+        items:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            $ref: '#/components/schemas/WSJournal'
+      xml:
+        name: result
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: apiKey
+      in: query
+    api-key:
+      type: apiKey
+      name: api-key
+      in: header
