@@ -1,0 +1,2850 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pure Web Service 524 activities persons API",
+    "version": "524"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "persons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lists all persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free text search string using Lucene query syntax. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#q_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "linkingStrategy",
+                "value": "",
+                "type": "query",
+                "description": "Specify the linking strategy to use when creating HTML renderings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#linkingStrategy_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all persons in the Pure instance. If additional filtering of the amount of persons returned, see the POST version which supports additional filtering."
+        },
+        {
+          "info": {
+            "name": "Complex operation for persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists persons in the Pure instance, similar to the GET version, instead of using parameters to alter the response, an XML document is posted with the request. The XML document contains fields for all the parameters available for the GET version, but also additional filtering options. For documentation of the XML format see <a href=\"documentation/Content/Topics/CT_Person.htm\">Person documentation</a>."
+        },
+        {
+          "info": {
+            "name": "Lists all active persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/active",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free text search string using Lucene query syntax. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#q_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "linkingStrategy",
+                "value": "",
+                "type": "query",
+                "description": "Specify the linking strategy to use when creating HTML renderings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#linkingStrategy_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all active persons."
+        },
+        {
+          "info": {
+            "name": "Lists projects on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/projects",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all projects associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists highlighted projects on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/projects/highlighted",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all highlighted projects associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists awards on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/awards",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all awards associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists highlighted awards on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/awards/highlighted",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all highlighted awards associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists applications on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/applications",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all applications associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists highlighted applications on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/applications/highlighted",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all highlighted applications associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists courses on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/courses",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all courses associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists impacts on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/impacts",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all impacts associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists highlighted impacts on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/impacts/highlighted",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all highlighted impacts associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists prizes on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/prizes",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all prizes associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists highlighted prizes on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/prizes/highlighted",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all highlighted prizes associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists datasets on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/datasets",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all datasets associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists highlighted datasets on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/datasets/highlighted",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all highlighted datasets associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists fingerprints on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/fingerprints",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all fingerprints associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists press/media on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/press-media",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all press/media associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists highlighted press/media on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/press-media/highlighted",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all highlighted press / media associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists research outputs on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/research-outputs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all research outputs associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists highlighted research outputs on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/research-outputs/highlighted",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all highlighted research outputs associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists activities on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/activities",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all activities associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists highlighted activities on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/activities/highlighted",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all highlighted activities associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists student theses on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/student-theses",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all student theses associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists highlighted student theses on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/student-theses/highlighted",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all highlighted student theses associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists curriculum vitae on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id/curricula-vitae",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all curriculum vitae associated to the person specified by an ID (supplied as path parameter)."
+        },
+        {
+          "info": {
+            "name": "Lists all former persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/former",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free text search string using Lucene query syntax. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#q_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "linkingStrategy",
+                "value": "",
+                "type": "query",
+                "description": "Specify the linking strategy to use when creating HTML renderings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#linkingStrategy_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all former persons."
+        },
+        {
+          "info": {
+            "name": "Lists available orderings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons-meta/orderings",
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all orderings available to the person endpoint. These values can be used by the order parameter."
+        },
+        {
+          "info": {
+            "name": "Lists available renderings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons-meta/renderings",
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all renderings available to the person endpoint. These values can be used by the rendering parameter."
+        },
+        {
+          "info": {
+            "name": "Get person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/persons/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Get person with specific ID (path parameter)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

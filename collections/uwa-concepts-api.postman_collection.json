@@ -1,0 +1,898 @@
+{
+  "item": [
+    {
+      "id": "2ec82bea-2dc8-4b37-b178-f7f54a84ea6c",
+      "name": "concepts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dcb5c83c-d0c9-4182-a856-a6ddd1e37365",
+          "name": "Lists all concepts",
+          "request": {
+            "name": "Lists all concepts",
+            "description": {
+              "content": "Lists all concepts in the Pure instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "concepts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Free text search string using Lucene query syntax. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#q_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "rating",
+                  "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "en_GB",
+                  "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fallbackLocale",
+                  "value": "<string>",
+                  "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fallbackLocale",
+                  "value": "<string>",
+                  "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rendering",
+                  "value": "ddp_metadata",
+                  "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "linkingStrategy",
+                  "value": "<string>",
+                  "description": "Specify the linking strategy to use when creating HTML renderings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#linkingStrategy_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "returnUsedContent",
+                  "value": "<boolean>",
+                  "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "navigationLink",
+                  "value": "<boolean>",
+                  "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9ce4b465-9154-4f7f-81e9-ec9f638d3367",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "concepts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "rating"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_GB"
+                    },
+                    {
+                      "key": "fallbackLocale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackLocale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rendering",
+                      "value": "system"
+                    },
+                    {
+                      "key": "linkingStrategy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnUsedContent",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "navigationLink",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7836,\n  \"pageInformation\": {\n    \"offset\": 7674,\n    \"size\": 6511\n  },\n  \"navigationLinks\": [\n    {\n      \"ref\": \"string\",\n      \"href\": \"string\"\n    },\n    {\n      \"ref\": \"string\",\n      \"href\": \"string\"\n    }\n  ],\n  \"items\": [\n    {\n      \"pureId\": 7982,\n      \"externalId\": \"string\",\n      \"externalIdSource\": \"string\",\n      \"externallyManaged\": false,\n      \"uuid\": \"string\",\n      \"renderings\": [\n        {\n          \"format\": \"string\",\n          \"locale\": \"string\",\n          \"error\": true,\n          \"html\": \"string\"\n        },\n        {\n          \"format\": \"string\",\n          \"locale\": \"string\",\n          \"error\": false,\n          \"html\": \"string\"\n        }\n      ],\n      \"thesauri\": {\n        \"uuid\": \"string\",\n        \"link\": {\n          \"ref\": \"string\",\n          \"href\": \"string\"\n        },\n        \"name\": {\n          \"formatted\": false,\n          \"text\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"type\": {\n          \"pureId\": 4041,\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": true,\n          \"uri\": \"string\",\n          \"term\": {\n            \"formatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"disabled\": false,\n          \"description\": {\n            \"formatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classificationRelations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"externalId\": \"string\",\n        \"externalIdSource\": \"string\",\n        \"externallyManaged\": true,\n        \"ref\": {\n          \"value\": \"<Circular reference to #/components/schemas/WSThesauriRef detected>\"\n        }\n      },\n      \"conceptId\": \"string\",\n      \"parentConcepts\": [\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": true,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 1109,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": false,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": true,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": false,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSConceptRef detected>\"\n          }\n        },\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": true,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 2652,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": false,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": true,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": true,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSConceptRef detected>\"\n          }\n        }\n      ],\n      \"semanticGroups\": [\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": true,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 3878,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": false,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": false,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": false,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSSemanticGroupRef detected>\"\n          }\n        },\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": true,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 1096,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": true,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": true,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": false,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSSemanticGroupRef detected>\"\n          }\n        }\n      ],\n      \"name\": {\n        \"formatted\": false,\n        \"text\": [\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"terms\": [\n        {\n          \"locale\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"locale\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"idf\": 8698.614662702174,\n      \"info\": {\n        \"createdBy\": \"string\",\n        \"createdDate\": \"2006-01-19T00:56:17.108Z\",\n        \"modifiedBy\": \"string\",\n        \"modifiedDate\": \"2021-05-12T11:42:07.327Z\",\n        \"portalUrl\": \"string\",\n        \"prettyUrlIdentifiers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"additionalExternalIds\": [\n          {\n            \"id\": \"string\",\n            \"idSource\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"idSource\": \"string\"\n          }\n        ],\n        \"usedContent\": [\n          {\n            \"rendering\": \"string\",\n            \"locale\": \"string\",\n            \"usedContent\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"rendering\": \"string\",\n            \"locale\": \"string\",\n            \"usedContent\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"previousUuids\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    {\n      \"pureId\": 3195,\n      \"externalId\": \"string\",\n      \"externalIdSource\": \"string\",\n      \"externallyManaged\": false,\n      \"uuid\": \"string\",\n      \"renderings\": [\n        {\n          \"format\": \"string\",\n          \"locale\": \"string\",\n          \"error\": true,\n          \"html\": \"string\"\n        },\n        {\n          \"format\": \"string\",\n          \"locale\": \"string\",\n          \"error\": true,\n          \"html\": \"string\"\n        }\n      ],\n      \"thesauri\": {\n        \"uuid\": \"string\",\n        \"link\": {\n          \"ref\": \"string\",\n          \"href\": \"string\"\n        },\n        \"name\": {\n          \"formatted\": true,\n          \"text\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"type\": {\n          \"pureId\": 9126,\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": false,\n          \"uri\": \"string\",\n          \"term\": {\n            \"formatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"disabled\": false,\n          \"description\": {\n            \"formatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classificationRelations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"externalId\": \"string\",\n        \"externalIdSource\": \"string\",\n        \"externallyManaged\": false,\n        \"ref\": {\n          \"value\": \"<Circular reference to #/components/schemas/WSThesauriRef detected>\"\n        }\n      },\n      \"conceptId\": \"string\",\n      \"parentConcepts\": [\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": true,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 387,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": true,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": false,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": false,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSConceptRef detected>\"\n          }\n        },\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": false,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 1593,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": false,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": false,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": true,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSConceptRef detected>\"\n          }\n        }\n      ],\n      \"semanticGroups\": [\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": false,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 8934,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": true,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": true,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": false,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSSemanticGroupRef detected>\"\n          }\n        },\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": true,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 4345,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": false,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": true,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": true,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSSemanticGroupRef detected>\"\n          }\n        }\n      ],\n      \"name\": {\n        \"formatted\": false,\n        \"text\": [\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"terms\": [\n        {\n          \"locale\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"locale\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"idf\": 5652.88554513941,\n      \"info\": {\n        \"createdBy\": \"string\",\n        \"createdDate\": \"1994-04-10T02:32:35.720Z\",\n        \"modifiedBy\": \"string\",\n        \"modifiedDate\": \"1953-09-21T14:29:15.766Z\",\n        \"portalUrl\": \"string\",\n        \"prettyUrlIdentifiers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"additionalExternalIds\": [\n          {\n            \"id\": \"string\",\n            \"idSource\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"idSource\": \"string\"\n          }\n        ],\n        \"usedContent\": [\n          {\n            \"rendering\": \"string\",\n            \"locale\": \"string\",\n            \"usedContent\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"rendering\": \"string\",\n            \"locale\": \"string\",\n            \"usedContent\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"previousUuids\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3acc10c7-34df-4bf5-80f1-59abb16181e1",
+          "name": "Complex operation for concepts",
+          "request": {
+            "name": "Complex operation for concepts",
+            "description": {
+              "content": "Lists concepts in the Pure instance, similar to the GET version, instead of using parameters to alter the response, an XML document is posted with the request. The XML document contains fields for all the parameters available for the GET version, but also additional filtering options. For documentation of the XML format see <a href=\"documentation/Content/Topics/CT_Concept.htm#post_xml\">Concept documentation</a>.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "concepts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"size\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"linkingStrategy\": \"<string>\",\n  \"locales\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fallbackLocales\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"renderings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"orderings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"returnUsedContent\": \"<boolean>\",\n  \"navigationLink\": \"<boolean>\",\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"idClassification\": \"<string>\",\n  \"idClassificationType\": \"<string>\",\n  \"modifiedAfter\": \"<dateTime>\",\n  \"modifiedBefore\": \"<dateTime>\",\n  \"createdAfter\": \"<dateTime>\",\n  \"createdBefore\": \"<dateTime>\",\n  \"searchString\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8188e2fc-61d9-4f76-8242-edeb64b73968",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "concepts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"size\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"linkingStrategy\": \"<string>\",\n  \"locales\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fallbackLocales\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"renderings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"orderings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"returnUsedContent\": \"<boolean>\",\n  \"navigationLink\": \"<boolean>\",\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"idClassification\": \"<string>\",\n  \"idClassificationType\": \"<string>\",\n  \"modifiedAfter\": \"<dateTime>\",\n  \"modifiedBefore\": \"<dateTime>\",\n  \"createdAfter\": \"<dateTime>\",\n  \"createdBefore\": \"<dateTime>\",\n  \"searchString\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 676,\n  \"pageInformation\": {\n    \"offset\": 6255,\n    \"size\": 4619\n  },\n  \"navigationLinks\": [\n    {\n      \"ref\": \"string\",\n      \"href\": \"string\"\n    },\n    {\n      \"ref\": \"string\",\n      \"href\": \"string\"\n    }\n  ],\n  \"items\": [\n    {\n      \"pureId\": 7700,\n      \"externalId\": \"string\",\n      \"externalIdSource\": \"string\",\n      \"externallyManaged\": false,\n      \"uuid\": \"string\",\n      \"renderings\": [\n        {\n          \"format\": \"string\",\n          \"locale\": \"string\",\n          \"error\": false,\n          \"html\": \"string\"\n        },\n        {\n          \"format\": \"string\",\n          \"locale\": \"string\",\n          \"error\": false,\n          \"html\": \"string\"\n        }\n      ],\n      \"thesauri\": {\n        \"uuid\": \"string\",\n        \"link\": {\n          \"ref\": \"string\",\n          \"href\": \"string\"\n        },\n        \"name\": {\n          \"formatted\": true,\n          \"text\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"type\": {\n          \"pureId\": 6613,\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": false,\n          \"uri\": \"string\",\n          \"term\": {\n            \"formatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"disabled\": false,\n          \"description\": {\n            \"formatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classificationRelations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"externalId\": \"string\",\n        \"externalIdSource\": \"string\",\n        \"externallyManaged\": false,\n        \"ref\": {\n          \"value\": \"<Circular reference to #/components/schemas/WSThesauriRef detected>\"\n        }\n      },\n      \"conceptId\": \"string\",\n      \"parentConcepts\": [\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": true,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 6313,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": true,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": true,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": false,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSConceptRef detected>\"\n          }\n        },\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": true,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 7265,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": false,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": false,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": true,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSConceptRef detected>\"\n          }\n        }\n      ],\n      \"semanticGroups\": [\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": true,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 5733,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": false,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": true,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": true,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSSemanticGroupRef detected>\"\n          }\n        },\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": true,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 5973,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": true,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": false,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": false,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSSemanticGroupRef detected>\"\n          }\n        }\n      ],\n      \"name\": {\n        \"formatted\": true,\n        \"text\": [\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"terms\": [\n        {\n          \"locale\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"locale\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"idf\": 8602.050219194942,\n      \"info\": {\n        \"createdBy\": \"string\",\n        \"createdDate\": \"1954-11-03T11:32:24.184Z\",\n        \"modifiedBy\": \"string\",\n        \"modifiedDate\": \"1996-11-05T20:41:34.115Z\",\n        \"portalUrl\": \"string\",\n        \"prettyUrlIdentifiers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"additionalExternalIds\": [\n          {\n            \"id\": \"string\",\n            \"idSource\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"idSource\": \"string\"\n          }\n        ],\n        \"usedContent\": [\n          {\n            \"rendering\": \"string\",\n            \"locale\": \"string\",\n            \"usedContent\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"rendering\": \"string\",\n            \"locale\": \"string\",\n            \"usedContent\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"previousUuids\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    {\n      \"pureId\": 3880,\n      \"externalId\": \"string\",\n      \"externalIdSource\": \"string\",\n      \"externallyManaged\": true,\n      \"uuid\": \"string\",\n      \"renderings\": [\n        {\n          \"format\": \"string\",\n          \"locale\": \"string\",\n          \"error\": false,\n          \"html\": \"string\"\n        },\n        {\n          \"format\": \"string\",\n          \"locale\": \"string\",\n          \"error\": true,\n          \"html\": \"string\"\n        }\n      ],\n      \"thesauri\": {\n        \"uuid\": \"string\",\n        \"link\": {\n          \"ref\": \"string\",\n          \"href\": \"string\"\n        },\n        \"name\": {\n          \"formatted\": false,\n          \"text\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"type\": {\n          \"pureId\": 8036,\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": true,\n          \"uri\": \"string\",\n          \"term\": {\n            \"formatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"disabled\": false,\n          \"description\": {\n            \"formatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"classificationRelations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"externalId\": \"string\",\n        \"externalIdSource\": \"string\",\n        \"externallyManaged\": false,\n        \"ref\": {\n          \"value\": \"<Circular reference to #/components/schemas/WSThesauriRef detected>\"\n        }\n      },\n      \"conceptId\": \"string\",\n      \"parentConcepts\": [\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": true,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 6698,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": true,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": true,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": true,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSConceptRef detected>\"\n          }\n        },\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": true,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 2923,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": false,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": false,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": true,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSConceptRef detected>\"\n          }\n        }\n      ],\n      \"semanticGroups\": [\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": false,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 8381,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": true,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": false,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": false,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSSemanticGroupRef detected>\"\n          }\n        },\n        {\n          \"uuid\": \"string\",\n          \"link\": {\n            \"ref\": \"string\",\n            \"href\": \"string\"\n          },\n          \"name\": {\n            \"formatted\": true,\n            \"text\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"type\": {\n            \"pureId\": 2349,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": true,\n            \"uri\": \"string\",\n            \"term\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": true,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"classificationRelations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": true,\n          \"ref\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSSemanticGroupRef detected>\"\n          }\n        }\n      ],\n      \"name\": {\n        \"formatted\": true,\n        \"text\": [\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"terms\": [\n        {\n          \"locale\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"locale\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"idf\": 2022.9497608104007,\n      \"info\": {\n        \"createdBy\": \"string\",\n        \"createdDate\": \"1987-03-23T11:59:29.035Z\",\n        \"modifiedBy\": \"string\",\n        \"modifiedDate\": \"1964-07-25T09:30:35.388Z\",\n        \"portalUrl\": \"string\",\n        \"prettyUrlIdentifiers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"additionalExternalIds\": [\n          {\n            \"id\": \"string\",\n            \"idSource\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"idSource\": \"string\"\n          }\n        ],\n        \"usedContent\": [\n          {\n            \"rendering\": \"string\",\n            \"locale\": \"string\",\n            \"usedContent\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"rendering\": \"string\",\n            \"locale\": \"string\",\n            \"usedContent\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"previousUuids\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58d48713-0ab0-4ec0-ac39-3c75058526ac",
+          "name": "Get concept",
+          "request": {
+            "name": "Get concept",
+            "description": {
+              "content": "Get concept with specific ID (path parameter).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "concepts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "idClassificationType",
+                  "value": "<string>",
+                  "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "idClassification",
+                  "value": "<string>",
+                  "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "en_GB",
+                  "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fallbackLocale",
+                  "value": "<string>",
+                  "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fallbackLocale",
+                  "value": "<string>",
+                  "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rendering",
+                  "value": "ddp_metadata",
+                  "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "returnUsedContent",
+                  "value": "<boolean>",
+                  "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "navigationLink",
+                  "value": "<boolean>",
+                  "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of the desired concept"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fb776ac5-645a-4a0b-bf5d-e4ea649e54bd",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "concepts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "idClassificationType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "idClassification",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_GB"
+                    },
+                    {
+                      "key": "fallbackLocale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackLocale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rendering",
+                      "value": "system"
+                    },
+                    {
+                      "key": "returnUsedContent",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "navigationLink",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the desired concept"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pureId\": 9715,\n  \"externalId\": \"string\",\n  \"externalIdSource\": \"string\",\n  \"externallyManaged\": false,\n  \"uuid\": \"string\",\n  \"renderings\": [\n    {\n      \"format\": \"string\",\n      \"locale\": \"string\",\n      \"error\": true,\n      \"html\": \"string\"\n    },\n    {\n      \"format\": \"string\",\n      \"locale\": \"string\",\n      \"error\": false,\n      \"html\": \"string\"\n    }\n  ],\n  \"thesauri\": {\n    \"uuid\": \"string\",\n    \"link\": {\n      \"ref\": \"string\",\n      \"href\": \"string\"\n    },\n    \"name\": {\n      \"formatted\": true,\n      \"text\": [\n        {\n          \"locale\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"locale\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    },\n    \"type\": {\n      \"pureId\": 2805,\n      \"externalId\": \"string\",\n      \"externalIdSource\": \"string\",\n      \"externallyManaged\": true,\n      \"uri\": \"string\",\n      \"term\": {\n        \"formatted\": true,\n        \"text\": [\n          {\n            \"locale\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"locale\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"disabled\": true,\n      \"description\": {\n        \"formatted\": true,\n        \"text\": [\n          {\n            \"locale\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"locale\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"classificationRelations\": [\n        {\n          \"pureId\": 3892,\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": false,\n          \"relatedTo\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n          },\n          \"relationType\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n          }\n        },\n        {\n          \"pureId\": 878,\n          \"externalId\": \"string\",\n          \"externalIdSource\": \"string\",\n          \"externallyManaged\": true,\n          \"relatedTo\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n          },\n          \"relationType\": {\n            \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n          }\n        }\n      ]\n    },\n    \"externalId\": \"string\",\n    \"externalIdSource\": \"string\",\n    \"externallyManaged\": true,\n    \"ref\": {\n      \"value\": \"<Circular reference to #/components/schemas/WSThesauriRef detected>\"\n    }\n  },\n  \"conceptId\": \"string\",\n  \"parentConcepts\": [\n    {\n      \"uuid\": \"string\",\n      \"link\": {\n        \"ref\": \"string\",\n        \"href\": \"string\"\n      },\n      \"name\": {\n        \"formatted\": true,\n        \"text\": [\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"type\": {\n        \"pureId\": 1135,\n        \"externalId\": \"string\",\n        \"externalIdSource\": \"string\",\n        \"externallyManaged\": false,\n        \"uri\": \"string\",\n        \"term\": {\n          \"formatted\": false,\n          \"text\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"disabled\": false,\n        \"description\": {\n          \"formatted\": true,\n          \"text\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"classificationRelations\": [\n          {\n            \"pureId\": 3164,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": false,\n            \"relatedTo\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            },\n            \"relationType\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            }\n          },\n          {\n            \"pureId\": 4180,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": false,\n            \"relatedTo\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            },\n            \"relationType\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            }\n          }\n        ]\n      },\n      \"externalId\": \"string\",\n      \"externalIdSource\": \"string\",\n      \"externallyManaged\": false,\n      \"ref\": {\n        \"value\": \"<Circular reference to #/components/schemas/WSConceptRef detected>\"\n      }\n    },\n    {\n      \"uuid\": \"string\",\n      \"link\": {\n        \"ref\": \"string\",\n        \"href\": \"string\"\n      },\n      \"name\": {\n        \"formatted\": true,\n        \"text\": [\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"type\": {\n        \"pureId\": 9645,\n        \"externalId\": \"string\",\n        \"externalIdSource\": \"string\",\n        \"externallyManaged\": false,\n        \"uri\": \"string\",\n        \"term\": {\n          \"formatted\": true,\n          \"text\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"disabled\": true,\n        \"description\": {\n          \"formatted\": true,\n          \"text\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"classificationRelations\": [\n          {\n            \"pureId\": 3857,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": true,\n            \"relatedTo\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            },\n            \"relationType\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            }\n          },\n          {\n            \"pureId\": 2612,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": false,\n            \"relatedTo\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            },\n            \"relationType\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            }\n          }\n        ]\n      },\n      \"externalId\": \"string\",\n      \"externalIdSource\": \"string\",\n      \"externallyManaged\": false,\n      \"ref\": {\n        \"value\": \"<Circular reference to #/components/schemas/WSConceptRef detected>\"\n      }\n    }\n  ],\n  \"semanticGroups\": [\n    {\n      \"uuid\": \"string\",\n      \"link\": {\n        \"ref\": \"string\",\n        \"href\": \"string\"\n      },\n      \"name\": {\n        \"formatted\": true,\n        \"text\": [\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"type\": {\n        \"pureId\": 2287,\n        \"externalId\": \"string\",\n        \"externalIdSource\": \"string\",\n        \"externallyManaged\": false,\n        \"uri\": \"string\",\n        \"term\": {\n          \"formatted\": false,\n          \"text\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"disabled\": true,\n        \"description\": {\n          \"formatted\": true,\n          \"text\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"classificationRelations\": [\n          {\n            \"pureId\": 2612,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": true,\n            \"relatedTo\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            },\n            \"relationType\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            }\n          },\n          {\n            \"pureId\": 7141,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": false,\n            \"relatedTo\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            },\n            \"relationType\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            }\n          }\n        ]\n      },\n      \"externalId\": \"string\",\n      \"externalIdSource\": \"string\",\n      \"externallyManaged\": true,\n      \"ref\": {\n        \"value\": \"<Circular reference to #/components/schemas/WSSemanticGroupRef detected>\"\n      }\n    },\n    {\n      \"uuid\": \"string\",\n      \"link\": {\n        \"ref\": \"string\",\n        \"href\": \"string\"\n      },\n      \"name\": {\n        \"formatted\": true,\n        \"text\": [\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"locale\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"type\": {\n        \"pureId\": 215,\n        \"externalId\": \"string\",\n        \"externalIdSource\": \"string\",\n        \"externallyManaged\": true,\n        \"uri\": \"string\",\n        \"term\": {\n          \"formatted\": true,\n          \"text\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"disabled\": true,\n        \"description\": {\n          \"formatted\": false,\n          \"text\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"classificationRelations\": [\n          {\n            \"pureId\": 6241,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": false,\n            \"relatedTo\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            },\n            \"relationType\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            }\n          },\n          {\n            \"pureId\": 838,\n            \"externalId\": \"string\",\n            \"externalIdSource\": \"string\",\n            \"externallyManaged\": true,\n            \"relatedTo\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            },\n            \"relationType\": {\n              \"value\": \"<Circular reference to #/components/schemas/WSClassification detected>\"\n            }\n          }\n        ]\n      },\n      \"externalId\": \"string\",\n      \"externalIdSource\": \"string\",\n      \"externallyManaged\": false,\n      \"ref\": {\n        \"value\": \"<Circular reference to #/components/schemas/WSSemanticGroupRef detected>\"\n      }\n    }\n  ],\n  \"name\": {\n    \"formatted\": false,\n    \"text\": [\n      {\n        \"locale\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"locale\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  },\n  \"terms\": [\n    {\n      \"locale\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"locale\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"idf\": 1257.153279639518,\n  \"info\": {\n    \"createdBy\": \"string\",\n    \"createdDate\": \"1978-12-31T12:01:12.259Z\",\n    \"modifiedBy\": \"string\",\n    \"modifiedDate\": \"2019-03-08T18:41:42.128Z\",\n    \"portalUrl\": \"string\",\n    \"prettyUrlIdentifiers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"additionalExternalIds\": [\n      {\n        \"id\": \"string\",\n        \"idSource\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"idSource\": \"string\"\n      }\n    ],\n    \"usedContent\": [\n      {\n        \"rendering\": \"string\",\n        \"locale\": \"string\",\n        \"usedContent\": [\n          {\n            \"family\": \"string\",\n            \"uuids\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"family\": \"string\",\n            \"uuids\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"rendering\": \"string\",\n        \"locale\": \"string\",\n        \"usedContent\": [\n          {\n            \"family\": \"string\",\n            \"uuids\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"family\": \"string\",\n            \"uuids\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"previousUuids\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6c3e031-5e49-43a4-85a3-6e2d3ee047e6",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "concepts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "idClassificationType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "idClassification",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_GB"
+                    },
+                    {
+                      "key": "fallbackLocale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackLocale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rendering",
+                      "value": "system"
+                    },
+                    {
+                      "key": "returnUsedContent",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "navigationLink",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the desired concept"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9464,\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "709bd705-9f47-4e50-a80c-3fb995eb1083",
+          "name": "Lists available orderings",
+          "request": {
+            "name": "Lists available orderings",
+            "description": {
+              "content": "Lists all orderings available to the concepts endpoint. These values can be used by the order parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "concepts-meta",
+                "orderings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3db5ef32-ce77-4a6c-b31b-629f999b501f",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "concepts-meta",
+                    "orderings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "911c8aab-f137-4f25-bdb8-8e8c55762eb8",
+          "name": "Lists available renderings",
+          "request": {
+            "name": "Lists available renderings",
+            "description": {
+              "content": "Lists all renderings available to the concepts endpoint. These values can be used by the rendering parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "concepts-meta",
+                "renderings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c8509415-e7fe-4625-be89-7b9c2a269b97",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "concepts-meta",
+                    "renderings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"renderings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.research-repository.uwa.edu.au/ws/api/524",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8fab72f0-08c3-4c6a-a8b6-e0c24f3ede09",
+    "name": "Pure Web Service 524 activities concepts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the Pure Web Service. Listed below are all available endpoints, along with a short description.<br/><br/>In order to use the Pure Web Service, you must enter an API key. These are generated in the Administrator tab of Pure, and issued with a given set of available endpoints.<br/>To enter your API key and begin your use, press the 'Authorize' button to at the top of this page. <br/>You are then presented with two options for entering the API key: <ol><li>Use the API key in query format.</li><li>Use the API key in a header.</li><br/> For further documentation, see <a href=\"documentation/Default.htm\">Web Service Documentation</a>.<br/><br/>This is final version of the legacy versioned Web Service, and will be available until otherwise announced in release notes.<br/>Please note that when doing new development it is advised to investigate the new Pure API - to see if relevant endpoints are available for your use case.<br/><em>If enabled</em>, you can can see documentation here <a href=\"../..\">API Documentation</a>.<br/><br/>\n\nContact Support:\n Name: Elsevier",
+      "type": "text/plain"
+    }
+  }
+}

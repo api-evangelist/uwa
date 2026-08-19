@@ -1,0 +1,257 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pure Web Service 524 activities API",
+    "version": "524"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "activities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lists all activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/activities",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free text search string using Lucene query syntax. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#q_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "linkingStrategy",
+                "value": "",
+                "type": "query",
+                "description": "Specify the linking strategy to use when creating HTML renderings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#linkingStrategy_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all activities in the Pure instance. If you need to filter the activities returned, see the POST version which supports additional filtering."
+        },
+        {
+          "info": {
+            "name": "Complex operation for activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/activities",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists activities in the Pure instance, similar to the GET version, instead of using parameters to alter the response, an XML document is posted with the request. The XML document contains fields for all the parameters available for the GET version, but also additional filtering options. For documentation of the XML format see <a href=\"documentation/Content/Topics/CT_Activity.htm#post_xml\">Activity documentation</a>."
+        },
+        {
+          "info": {
+            "name": "Lists available orderings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/activities-meta/orderings",
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all orderings available to the activity endpoint. These values can be used by the order parameter."
+        },
+        {
+          "info": {
+            "name": "Lists available renderings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/activities-meta/renderings",
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists all renderings available to the activity endpoint. These values can be used by the rendering parameter."
+        },
+        {
+          "info": {
+            "name": "Returns an activity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.research-repository.uwa.edu.au/ws/api/524/activities/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the desired activity"
+              },
+              {
+                "name": "idClassificationType",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification type used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "idClassification",
+                "value": "",
+                "type": "query",
+                "description": "Give an optional classification used to specify which type of ID should be used in the match. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#idclassification_param\">Read more...</a>"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+              },
+              {
+                "name": "fallbackLocale",
+                "value": "",
+                "type": "query",
+                "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+              },
+              {
+                "name": "rendering",
+                "value": "",
+                "type": "query",
+                "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+              },
+              {
+                "name": "returnUsedContent",
+                "value": "",
+                "type": "query",
+                "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+              },
+              {
+                "name": "navigationLink",
+                "value": "",
+                "type": "query",
+                "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "apiKey",
+              "value": "{{apiKey}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns an activity with specific ID (path parameter)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

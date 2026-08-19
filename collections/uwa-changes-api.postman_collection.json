@@ -1,0 +1,446 @@
+{
+  "item": [
+    {
+      "id": "e58595ef-bc8b-432f-b3b7-ecc113474be2",
+      "name": "changes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c293e3ef-4db5-43d7-8dde-2db646acf332",
+          "name": "Get changes",
+          "request": {
+            "name": "Get changes",
+            "description": {
+              "content": "Get changes from specific audit resumption token or date in the <b>yyyy-MM-dd</b> or <b>yyyy-MM-dd_HH-mm-ss</b> format (e.g. 2017-04-24 or 2017-04-24_13-30-00) and onwards. In this endpoint a new event type exists that is called 'metricValueChange'. This indicated metric values has changed for the listed content. A change of metric values are no longer considered a change of the pure content item and contentChange events will no longer be generated when metrics values are updated. As a consumer you can choose to ignore the metric updates and only react upon the contentChange events. Or if its important to listen for metric values changes, listen for both ContentChange and metricValueChange.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "changes",
+                ":tokenOrDate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Limit the fields included in the response. E.g. 'nameVariants.nameVariant' will only return the name variants. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fields_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Specify the ordering of content in the result. Default: ID ascending. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Choose the directionality of the result. If set, this will override direction on 'Order'. Read more about order elements and direction here: <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#order_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "en_GB",
+                  "description": "Enter the desired locale. E.g. 'en_GB' will only return the English text strings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#locale_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fallbackLocale",
+                  "value": "<string>",
+                  "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fallbackLocale",
+                  "value": "<string>",
+                  "description": "Fallback locale string. Syntax is 'Locale1=>Locale2' to map Locale1 to Locale2. E.g. 'da_DK=>en_GB'. Locale1 must be equal to the locale provided in the locale string. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#fallbackLocale_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rendering",
+                  "value": "<string>",
+                  "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rendering",
+                  "value": "<string>",
+                  "description": "HTML rendering formats. If rendering formats are specified, the content will be returned in these formats instead of XML. If XML is also wanted, it can be included using the fields parameter. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#rendering_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "linkingStrategy",
+                  "value": "<string>",
+                  "description": "Specify the linking strategy to use when creating HTML renderings. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#linkingStrategy_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "returnUsedContent",
+                  "value": "<boolean>",
+                  "description": "If 'true', the IDs of the content used to create HTML renderings are returned as part of the result. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#usedContent_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "navigationLink",
+                  "value": "<boolean>",
+                  "description": "Include navigation links for paging and content. Default: true. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#navLink_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "Enter the number of results per window. Default: 10. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Enter the offset into the total result set where items should be returned from. Default: 0. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#size_offset_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Enter the desired page number. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Enter the desired number of results per page. <a href=\"documentation/Content/Topics/Parameter_Descriptions.htm#page_size_param\">Read more...</a>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tokenOrDate",
+                  "description": "(Required) Resumption token or date (in yyyy-MM-dd or yyyy-MM-dd_HH-mm-ss format) of the earliest audit entry"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apiKey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b3030f79-44eb-401a-a648-85d00836ceee",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "changes",
+                    ":tokenOrDate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_GB"
+                    },
+                    {
+                      "key": "fallbackLocale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackLocale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rendering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rendering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "linkingStrategy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnUsedContent",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "navigationLink",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tokenOrDate",
+                      "description": "(Required) Resumption token or date (in yyyy-MM-dd or yyyy-MM-dd_HH-mm-ss format) of the earliest audit entry"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6392,\n  \"pageInformation\": {\n    \"offset\": 2710,\n    \"size\": 4545\n  },\n  \"navigationLinks\": [\n    {\n      \"ref\": \"string\",\n      \"href\": \"string\"\n    },\n    {\n      \"ref\": \"string\",\n      \"href\": \"string\"\n    }\n  ],\n  \"resumptionToken\": \"string\",\n  \"moreChanges\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53ffac04-00c1-40da-ba57-8429ef01db18",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "changes",
+                    ":tokenOrDate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "en_GB"
+                    },
+                    {
+                      "key": "fallbackLocale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackLocale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rendering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rendering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "linkingStrategy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnUsedContent",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "navigationLink",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tokenOrDate",
+                      "description": "(Required) Resumption token or date (in yyyy-MM-dd or yyyy-MM-dd_HH-mm-ss format) of the earliest audit entry"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4586,\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.research-repository.uwa.edu.au/ws/api/524",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "60523191-4c0d-4cec-a7ee-c8507072a9ec",
+    "name": "Pure Web Service 524 activities changes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the Pure Web Service. Listed below are all available endpoints, along with a short description.<br/><br/>In order to use the Pure Web Service, you must enter an API key. These are generated in the Administrator tab of Pure, and issued with a given set of available endpoints.<br/>To enter your API key and begin your use, press the 'Authorize' button to at the top of this page. <br/>You are then presented with two options for entering the API key: <ol><li>Use the API key in query format.</li><li>Use the API key in a header.</li><br/> For further documentation, see <a href=\"documentation/Default.htm\">Web Service Documentation</a>.<br/><br/>This is final version of the legacy versioned Web Service, and will be available until otherwise announced in release notes.<br/>Please note that when doing new development it is advised to investigate the new Pure API - to see if relevant endpoints are available for your use case.<br/><em>If enabled</em>, you can can see documentation here <a href=\"../..\">API Documentation</a>.<br/><br/>\n\nContact Support:\n Name: Elsevier",
+      "type": "text/plain"
+    }
+  }
+}
