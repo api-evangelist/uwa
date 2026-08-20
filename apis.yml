@@ -65,6 +65,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Activities
+  tags_raw:
   - activities
   properties:
   - type: OpenAPI
@@ -92,6 +94,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Application
+  tags_raw:
   - applications
   properties:
   - type: OpenAPI
@@ -145,6 +149,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Awards
+  tags_raw:
   - awards
   properties:
   - type: OpenAPI
@@ -171,6 +177,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Changes
+  tags_raw:
   - changes
   properties:
   - type: OpenAPI
@@ -224,6 +232,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Concepts
+  tags_raw:
   - concepts
   properties:
   - type: OpenAPI
@@ -250,6 +260,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Courses
+  tags_raw:
   - courses
   properties:
   - type: OpenAPI
@@ -303,6 +315,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Datasets
+  tags_raw:
   - datasets
   properties:
   - type: OpenAPI
@@ -329,6 +343,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Downloads
+  tags_raw:
   - downloads
   properties:
   - type: OpenAPI
@@ -381,6 +397,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Event
+  tags_raw:
   - events
   properties:
   - type: OpenAPI
@@ -462,6 +480,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Fingerprints
+  tags_raw:
   - fingerprints
   properties:
   - type: OpenAPI
@@ -488,6 +508,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Impacts
+  tags_raw:
   - impacts
   properties:
   - type: OpenAPI
@@ -514,6 +536,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Journals
+  tags_raw:
   - journals
   properties:
   - type: OpenAPI
@@ -540,7 +564,8 @@ apis:
     The keyword-group-configuration API from University of Western Australia — 4 operation(s) for keyword-group-configuration.
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
-  tags:
+  tags: []
+  tags_raw:
   - keyword-group-configuration
   properties:
   - type: OpenAPI
@@ -594,6 +619,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Persons
+  tags_raw:
   - persons
   properties:
   - type: OpenAPI
@@ -620,7 +647,8 @@ apis:
     The press-media API from University of Western Australia — 4 operation(s) for press-media.
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
-  tags:
+  tags: []
+  tags_raw:
   - press-media
   properties:
   - type: OpenAPI
@@ -673,6 +701,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Project
+  tags_raw:
   - projects
   properties:
   - type: OpenAPI
@@ -699,6 +729,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Publishers
+  tags_raw:
   - publishers
   properties:
   - type: OpenAPI
@@ -726,6 +758,8 @@ apis:
   humanURL: https://api-portal.uwa.edu.au/
   baseURL: https://api-portal.uwa.edu.au/
   tags:
+  - Research Outputs
+  tags_raw:
   - research-outputs
   properties:
   - type: OpenAPI
