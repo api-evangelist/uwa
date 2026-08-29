@@ -1,0 +1,99 @@
+slug: uwa
+provider: University of Western Australia
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Education
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 8
+edges:
+- tag: research-outputs
+  spec_file: uwa-research-outputs-api-openapi.yml
+  capability_id: BC-4780.40
+  capability_id_l1: BC-4780
+  capability_name: Scholarly Output & Publication Management
+  confidence: 0.9
+  evidence: GET /research-outputs  listResearchOutputs  Lists all research outputs; GET /research-outputs-meta/author-roles  Lists
+    available author roles; schema WSResearchOutputListResult, WSPublicationStatus
+  reason: Directly exposes the institution's catalogue of scholarly research outputs with author roles
+    and publication status — the core of scholarly output and publication management in a research information
+    system.
+- tag: applications
+  spec_file: uwa-applications-api-openapi.yml
+  capability_id: BC-4780.20
+  capability_id_l1: BC-4780
+  capability_name: Research Grant Management
+  confidence: 0.8
+  evidence: GET /applications  listApplications_1  Lists all applications; schemas WSApplicationStatus,
+    WSApplicationDocument, WSAwardFundingAssociation, WSAwardsNestedQuery
+  reason: In Elsevier Pure, 'applications' are research grant/funding applications (linked to awards and
+    funding associations), not student admissions applications — this is research grant lifecycle management
+    (pre-award).
+- tag: awards
+  spec_file: uwa-awards-api-openapi.yml
+  capability_id: BC-4780.20
+  capability_id_l1: BC-4780
+  capability_name: Research Grant Management
+  confidence: 0.8
+  evidence: GET /awards  listAwards  Get award; schemas WSAwardFundingAssociation, WSAwardStatusDetailsStatus,
+    WSAwardMilestoneReminder
+  reason: '''Awards'' in Pure are funded research grants/awards with funding associations, status and
+    milestone reminders — post-award research grant administration, not student prizes or HR awards.'
+- tag: impacts
+  spec_file: uwa-impacts-api-openapi.yml
+  capability_id: BC-4780.60
+  capability_id_l1: BC-4780
+  capability_name: Research Impact & Assessment
+  confidence: 0.8
+  evidence: GET /impacts listImpacts Lists all impacts; GET /impacts/{id} getImpact Get impacts
+  reason: Pure's impact entity records research impact narratives/case studies used for national research
+    assessment, matching Research Impact & Assessment.
+- tag: datasets
+  spec_file: uwa-datasets-api-openapi.yml
+  capability_id: BC-4780
+  capability_id_l1: BC-4780
+  capability_name: Research & Scholarship Management
+  confidence: 0.75
+  evidence: GET /datasets listDataSets Lists all datasets; schemas WSDataSet, WSEthicalReview, WSAwardFundingAssociation
+  reason: Elsevier Pure is a research information management system; the datasets entity records research
+    datasets with ethical review and funding associations, i.e. research/scholarship record-keeping. Sub-capability
+    ambiguous between scholarly output tracking and portfolio, so L1 only.
+- tag: projects
+  spec_file: uwa-projects-api-openapi.yml
+  capability_id: BC-4780
+  capability_id_l1: BC-4780
+  capability_name: Research & Scholarship Management
+  confidence: 0.75
+  evidence: GET /projects  Lists all projects; GET /projects/active  listActiveProjects; schemas WSAwardFundingAssociation,
+    WSFundingCollaboratorAssociation, WSEthicalReview
+  reason: Projects in the Pure research information system are research projects with funding/award and
+    ethical-review associations, i.e. institutional research portfolio and grant-related records. L1 is
+    well supported; whether it is portfolio strategy or grant administration is ambiguous, so no L2.
+- tag: activities
+  spec_file: uwa-activities-api-openapi.yml
+  capability_id: BC-4780
+  capability_id_l1: BC-4780
+  capability_name: Research & Scholarship Management
+  confidence: 0.7
+  evidence: GET /activities  listActivities  Lists all activities; schemas WSAbstractActivity, WSEthicalReview,
+    WSERA2015FieldOfResearchAssociation
+  reason: Elsevier Pure is a research information management system; 'activities' are academic/research
+    activities (talks, editorships, memberships) tracked as part of the institution's research portfolio.
+    Schemas referencing ethical review and ERA field-of-research reinforce the research-management reading,
+    but the specific sub-capability is ambiguous.
+- tag: journals
+  spec_file: uwa-journals-api-openapi.yml
+  capability_id: BC-4780.40
+  capability_id_l1: BC-4780
+  capability_name: Scholarly Output & Publication Management
+  confidence: 0.7
+  evidence: GET /journals listJournals Lists all journals; schemas WSScopusMetrics, WSSherpaRomeoOpenAccessPermission,
+    WSTemporalISSN
+  reason: Journal records with Scopus metrics, ISSNs and Sherpa Romeo open-access permissions serve stewardship
+    of scholarly publication output and open access, i.e. scholarly output/publication management.

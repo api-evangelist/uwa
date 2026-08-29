@@ -846,6 +846,9 @@ apis:
   - type: x-json-ld-context
     url: json-ld/uwa-context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/uwa-capability-edges.yml
+    name: University of Western Australia Business Capability Map
   - type: AgenticAccess
     url: agentic-access/uwa-agentic-access.yml
   - type: DomainSecurity
