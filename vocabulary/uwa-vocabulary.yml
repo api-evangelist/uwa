@@ -1,77 +1,80 @@
+generated: '2026-08-30'
+method: probed
+source: >-
+  Live probes of https://api.research-repository.uwa.edu.au/ws/oai on 2026-08-30 —
+  ?verb=Identify, ?verb=ListMetadataFormats and ?verb=ListSets. Every term below was read out of
+  a real 200 response from the UWA-operated endpoint. Nothing here is inferred.
+x-operator: institution
 vocabulary:
-  name: UWA Profiles and Research Repository Vocabulary
+  name: UWA Research Repository OAI-PMH Vocabulary
   description: >-
-    Controlled vocabulary of the core terms exposed by the University of Western
-    Australia Profiles and Research Repository, backed by the Elsevier Pure CRIS
-    Web Service (version 524). Terms and definitions are derived from the real
-    Swagger 2.0 description published at /ws/api/524/swagger.json and reflect the
-    WS* objects and shared metadata patterns of Pure.
-  version: "524"
+    The harvesting vocabulary the University of Western Australia actually advertises on its own
+    OAI-PMH endpoint: the metadata formats it will serve and the shape of the sets it partitions
+    its repository into. This is UWA's deployment vocabulary, not the Elsevier Pure product
+    vocabulary — the Pure Web Service contract at /ws/api/524 is Elsevier's and is deliberately
+    not described in this repo.
+  version: 'OAI-PMH 2.0'
+  endpoint: https://api.research-repository.uwa.edu.au/ws/oai
   terms:
-    - term: Person
+  - term: repositoryName
+    value: Pure OAI Repository
+    definition: >-
+      The repository name UWA's endpoint returns from ?verb=Identify. It names the software
+      (Elsevier Pure), not the institution — the institutional identity is carried by the host and
+      by the adminEmail help-repository@uwa.edu.au.
+    tags: [identify, repository]
+  - term: earliestDatestamp
+    value: '2014-08-20T07:32:52Z'
+    definition: Oldest datestamp in the repository, from the Identify response. Bounds any full harvest.
+    tags: [identify, harvesting]
+  - term: granularity
+    value: YYYY-MM-DDThh:mm:ssZ
+    definition: Datestamp granularity accepted on the from/until parameters.
+    tags: [identify, harvesting]
+  - term: deletedRecord
+    value: 'no'
+    definition: >-
+      The repository does not report deletions, so an incremental harvester cannot learn about
+      withdrawn records from this endpoint and must periodically re-harvest in full.
+    tags: [identify, harvesting, limitation]
+  metadataFormats:
+    description: The five metadataPrefix values ?verb=ListMetadataFormats advertises.
+    formats:
+    - prefix: oai_dc
+      definition: Unqualified Dublin Core, the OAI-PMH mandatory baseline format.
+    - prefix: qdc
+      definition: Qualified Dublin Core.
+    - prefix: mods
+      definition: Metadata Object Description Schema (Library of Congress).
+    - prefix: xmetadiss
+      definition: XMetaDissPlus, the German National Library dissertation profile.
+    - prefix: nl_didl
+      definition: DIDL wrapper profile used by the Dutch national repository infrastructure.
+  setStructure:
+    total_sets: 167
+    description: >-
+      167 sets were returned by ?verb=ListSets on 2026-08-30. They fall into four families.
+    families:
+    - pattern: persons:all
+      definition: Every person record in the repository — 1 set.
+    - pattern: publications:all | publications:withFiles
       definition: >-
-        A researcher or staff member (WSPerson) with identifiers, name, ORCID,
-        organisation associations, profile information, and research metrics.
-      tags: [person, researcher, profile]
-    - term: ResearchOutput
+        All publication records, and the subset with associated full-text files.
+    - pattern: publications:year<YYYY> | publications:year<YYYY>:withFiles
       definition: >-
-        A research output / publication (WSResearchOutput) such as a journal
-        article, book, or conference contribution, with authors, type, category,
-        publication statuses, and managing organisational unit.
-      tags: [research-output, publication, output]
-    - term: Organisation
+        Publication records by year of publication, spanning 1946 through 2026, each with a
+        parallel :withFiles subset. This year-pair pattern accounts for the bulk of the 167 sets.
+    - pattern: openaire
       definition: >-
-        An internal organisational unit (WSOrganisation) such as a school,
-        faculty, or centre, with name, type, period, and hierarchy of parents.
-      tags: [organisation, organisational-unit, structure]
-    - term: DataSet
-      definition: >-
-        A research dataset (WSDataSet) with title, DOI, coverage periods,
-        publisher, documents, and associated persons and organisations.
-      tags: [dataset, data, doi]
-    - term: Project
-      definition: >-
-        A research project (WSUPMProject) with title, status, acronym,
-        participants, period, collaborators, and managing organisational unit.
-      tags: [project, grant, research]
-    - term: Activity
-      definition: >-
-        A research-related activity (WSActivity) such as an editorial role,
-        talk, or membership, associated with persons and organisations.
-      tags: [activity, engagement]
-    - term: Award
-      definition: >-
-        A funding award (WSAward) capturing grant and funding metadata related
-        to projects, applications, and organisations.
-      tags: [award, funding, grant]
-    - term: Event
-      definition: >-
-        A scholarly event (WSEvent) such as a conference or workshop referenced
-        by research outputs and activities.
-      tags: [event, conference]
-    - term: Journal
-      definition: >-
-        A journal (WSJournal) serving as a publication venue for research
-        outputs, with title, ISSN, and publisher.
-      tags: [journal, venue]
-    - term: Classification
-      definition: >-
-        A classified term (WSClassification) drawn from a Pure classification
-        scheme, expressed as a URI plus localized term text.
-      tags: [classification, taxonomy, controlled-value]
-    - term: ListResult
-      definition: >-
-        The standard collection envelope (WS*ListResult) returning count,
-        pageInformation, navigationLinks, and the items array.
-      tags: [pagination, envelope, collection]
-    - term: pureId
-      definition: Internal numeric identifier assigned by Pure to every object.
-      tags: [identifier, internal]
-    - term: uuid
-      definition: Globally unique identifier (UUID) for an object, stable across systems.
-      tags: [identifier, uuid]
-    - term: apiKey
-      definition: >-
-        API key credential required for all requests, supplied either as a
-        query parameter (apiKey) or HTTP header (api-key).
-      tags: [security, authentication, api-key]
+        The OpenAIRE-compliant subset. Consistent with every response being schema-located
+        against the OpenAIRE CERIF 1.2 profile
+        (https://www.openaire.eu/cerif-profile/1.2/).
+    - pattern: datasets:all
+      definition: Every research dataset record in the repository.
+  identifierScheme:
+    pattern: oai:pure.atira.dk:<entity>/<uuid>
+    definition: >-
+      OAI identifiers carry the Pure vendor namespace (pure.atira.dk) rather than a UWA namespace.
+      The resolvable identifier is instead in dc:identifier, which points at
+      https://research-repository.uwa.edu.au/en/<entity>/<uuid>.
+    observed_entities: [persons, publications, datasets]

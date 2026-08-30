@@ -1,22 +1,68 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/uwa-research-repository.yaml
+generated: '2026-08-30'
+method: probed
+source: >-
+  Live probes on 2026-08-30 of https://api.research-repository.uwa.edu.au/ws/oai,
+  https://api-portal.uwa.edu.au/, https://api.uwa.edu.au/ and https://idp.uwa.edu.au/idp/shibboleth.
+  Replaces a previous file whose only source was Elsevier's Pure Web Service OpenAPI — that
+  contract is the vendor's and has been removed from this repo.
+x-operator: institution
 summary:
   types:
+  - none
   - apiKey
+  - saml2
   api_key_in:
   - header
   - query
 schemes:
-- name: apiKey
-  type: apiKey
-  in: query
-  parameter: apiKey
+- name: none
+  type: none
+  surface: uwa:oai-pmh
+  x-operator: institution
+  description: >-
+    The OAI-PMH endpoint at https://api.research-repository.uwa.edu.au/ws/oai is fully open. All
+    six OAI-PMH 2.0 verbs returned 200 with no credential presented, including ListRecords over
+    persons:all and publications:all. This is the only UWA-operated API surface reachable without
+    an account.
   sources:
-  - openapi/uwa-research-repository.yaml
-- name: api-key
+  - https://api.research-repository.uwa.edu.au/ws/oai?verb=Identify
+- name: azure-apim-subscription-key
   type: apiKey
   in: header
-  parameter: api-key
+  parameter: Ocp-Apim-Subscription-Key
+  surface: uwa:developer-portal
+  x-operator: institution
+  confidence: medium
+  description: >-
+    api-portal.uwa.edu.au is a Microsoft Azure API Management developer portal ("Discover APIs,
+    learn how to use them, try them out interactively, and sign up to acquire keys"), and
+    api.uwa.edu.au answers as a live APIM gateway (HTTP/2 404, content-type application/json,
+    Azure request-context header). Azure APIM's subscription-key header is the platform default.
+    Marked medium confidence because the product catalog is behind sign-in — the specific header
+    name and any per-product override could not be read without an account, and /signup returns
+    404. No key was obtained and no protected operation was called.
   sources:
-  - openapi/uwa-research-repository.yaml
+  - https://api-portal.uwa.edu.au/
+  - https://api.uwa.edu.au/
+- name: shibboleth-saml2
+  type: saml2
+  surface: uwa:identity-federation
+  x-operator: institution
+  description: >-
+    UWA operates its own Shibboleth SAML 2.0 identity provider at
+    https://idp.uwa.edu.au/idp/shibboleth, scoped to uwa.edu.au, with HTTP-POST and HTTP-Redirect
+    SingleSignOnService bindings and transient NameID. This is the credential behind essentially
+    every affiliation-gated UWA service, and it is the institution's most significant
+    machine-readable, standards-based surface.
+  sources:
+  - https://idp.uwa.edu.au/idp/shibboleth
+not_assessed:
+- surface: Elsevier Pure Web Service (api.research-repository.uwa.edu.au/ws/api/524)
+  x-operator: tenant
+  reason: >-
+    Requires a Pure API key issued from the Pure Administrator tab. The contract is Elsevier's
+    ("Pure Web Service 524", info.contact.name "Elsevier"), so its auth model is Elsevier's
+    engineering and belongs to the Elsevier repo, not to UWA's.
+- surface: Ex Libris Primo VE (onesearch.library.uwa.edu.au)
+  x-operator: tenant
+  reason: Ex Libris product; UWA is tenant 61UWA_INST. Auth model is Ex Libris's.
