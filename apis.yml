@@ -1,878 +1,315 @@
 ---
 aid: uwa
 name: University of Western Australia
+x-type: university
+x-category: Public Research University
 description: >-
-  The University of Western Australia (UWA) is a public research university in
-  Perth, Western Australia, and ranked #80 in the QS World University Rankings
-  2025. Its public developer/API footprint is modest and primarily institutional:
-  UWA operates an Azure API Management developer portal where APIs and products
-  are published and consumed via API keys behind a sign-in, and exposes an
-  Elsevier Pure CRIS Web Service for its Profiles and Research Repository that
-  returns research outputs, people, projects, and related metadata via an
-  API-key-protected REST interface. Most other interfaces are gated behind
-  institutional affiliation or federated identity rather than open self-service.
+  The University of Western Australia (UWA) is a public research university in Perth, Western
+  Australia, a member of the Group of Eight, and ranked in the top 100 of the QS World University
+  Rankings. Its programmable footprint is small, and most of what appears to be a UWA API is not:
+  the research repository at research-repository.uwa.edu.au runs on Elsevier Pure and its
+  /ws/api/524 web service is Elsevier's contract, and library discovery at
+  onesearch.library.uwa.edu.au is Ex Libris Primo VE under tenant 61UWA_INST. Both are real UWA
+  services and neither is UWA engineering. What UWA genuinely operates and exposes is narrower and
+  more interesting: a fully open, unauthenticated OAI-PMH 2.0 harvesting endpoint at
+  api.research-repository.uwa.edu.au/ws/oai serving 167 sets across five metadata formats with no
+  key required, and a Shibboleth SAML 2.0 identity provider publishing signed federation metadata
+  at idp.uwa.edu.au/idp/shibboleth. UWA also runs a Microsoft Azure API Management estate — a
+  developer portal at api-portal.uwa.edu.au and a live gateway at api.uwa.edu.au — but the product
+  catalog sits behind sign-in and the portal's own signup path returns 404, so nothing there is
+  publicly enumerable. No open data portal, no public course or timetable API, and no first-party
+  OpenAPI of any kind was found.
 type: Index
 deliveryModel:
   model: saas
   open_source: false
-  commercial: true
+  commercial: false
   callable_host: true
   label: Hosted service · you call their endpoint
-  confidence: high
+  confidence: medium
   source:
-  - openapi
-  - pricing
-  generated: '2026-08-28'
-  method: derived
+  - probes
+  generated: '2026-08-30'
+  method: probed
 accessModel:
   pricing: free
-  onboarding: self-serve
+  onboarding: open
   trial: false
   try_now: true
-  public: false
-  label: Free · Self-serve signup
-  confidence: high
+  public: true
+  label: Free · Open harvesting endpoint, no key required
+  confidence: medium
   source:
-  - plans
+  - probes
   - authentication
-  generated: '2026-07-22'
-  method: derived
+  generated: '2026-08-30'
+  method: probed
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/uwa.png
 url: https://raw.githubusercontent.com/api-evangelist/uwa/refs/heads/main/apis.yml
 tags:
-  - Education
-  - Higher Education
-  - University
-  - Research
-  - Australia
-  - Perth
+- Education
+- Higher Education
+- University
+- Australia
+- Group of Eight
+- Perth
+- Research
+- Research Data
+- Research Repository
+- Identity Federation
+- OAI-PMH
+- Library
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 specificationVersion: '0.23'
 apis:
-- aid: uwa:developer-portal
-  name: UWA Developer Portal (Azure API Management)
+- aid: uwa:oai-pmh
+  name: UWA Research Repository OAI-PMH
+  x-operator: institution
   description: >-
-    UWA's developer portal, built on Microsoft Azure API Management, where published APIs and products
-    can be discovered, tried interactively, and subscribed to for API keys. The catalog of products and
-    APIs is presented behind a JavaScript app and sign-in, so individual endpoints are not publicly enumerable
-    without an account.
+    An open, unauthenticated OAI-PMH 2.0 metadata harvesting endpoint operated by UWA on its own
+    host. All six protocol verbs returned 200 on 2026-08-30 with no credential presented. Identify
+    reports adminEmail help-repository@uwa.edu.au and an earliestDatestamp of 2014-08-20;
+    ListMetadataFormats advertises oai_dc, qdc, mods, xmetadiss and nl_didl; ListSets enumerates
+    167 sets covering persons, publications by year from 1946 to 2026, datasets, and an openaire
+    set, with every response schema-located against the OpenAIRE CERIF 1.2 profile. The repository
+    software underneath is Elsevier Pure, but OAI-PMH is an open standard rather than a vendor
+    contract, the host is UWA's own registrable domain, and the administrative contact is a UWA
+    address — so this is recorded as institution-operated. It is the only UWA API surface anyone
+    can call today without an account.
+  humanURL: https://research-repository.uwa.edu.au/
+  baseURL: https://api.research-repository.uwa.edu.au/ws/oai
+  tags:
+  - OAI-PMH
+  - Research Data
+  - Metadata
+  - Harvesting
+  - Open Access
+  properties:
+  - type: OpenAPI
+    url: openapi/uwa-oai-pmh-openapi.yml
+  - type: x-openapi-original
+    url: openapi/_original/uwa-oai-pmh-openapi.yml
+  - type: x-examples
+    url: examples/
+  - type: x-vocabulary
+    url: vocabulary/uwa-vocabulary.yml
+  - type: x-conformance
+    url: conformance/uwa-conformance.yml
+  - type: Authentication
+    url: authentication/uwa-authentication.yml
+  - type: Documentation
+    url: http://www.openarchives.org/OAI/openarchivesprotocol.html
+- aid: uwa:identity-federation
+  name: UWA Shibboleth Identity Provider (SAML 2.0 metadata)
+  x-operator: institution
+  description: >-
+    UWA operates its own Shibboleth identity provider and publishes signed SAML 2.0 federation
+    metadata at https://idp.uwa.edu.au/idp/shibboleth (200, 5,081 bytes). The document is an
+    EntityDescriptor with entityID https://idp.uwa.edu.au/idp/shibboleth, an IDPSSODescriptor
+    supporting urn:oasis:names:tc:SAML:2.0:protocol, signing and encryption key descriptors
+    (uwa-prod-signing-cert, CN=idp.uwa.edu.au), a shibmd:Scope of uwa.edu.au, transient NameID, and
+    SingleSignOnService bindings for both HTTP-POST and HTTP-Redirect. Institution-operated by
+    definition, machine-readable, and the credential behind essentially every affiliation-gated UWA
+    service. This is the surface class universities genuinely run and almost never catalogue.
+  humanURL: https://idp.uwa.edu.au/idp/shibboleth
+  baseURL: https://idp.uwa.edu.au/idp
+  tags:
+  - Identity Federation
+  - SAML
+  - Shibboleth
+  - Single Sign-On
+  properties:
+  - type: IdentityFederation
+    url: https://idp.uwa.edu.au/idp/shibboleth
+  - type: x-conformance
+    url: conformance/uwa-conformance.yml
+  - type: Authentication
+    url: authentication/uwa-authentication.yml
+- aid: uwa:developer-portal
+  name: UWA API Gateway and Developer Portal (Azure API Management)
+  x-operator: institution
+  description: >-
+    UWA runs a Microsoft Azure API Management estate on its own domains. The developer portal at
+    api-portal.uwa.edu.au returns 200 but serves the stock unbranded Azure APIM shell — title "Home
+    - Microsoft Azure API Management - developer portal" — with the product and API catalog behind
+    sign-in, and its documented /signup path returns 404. The runtime gateway at api.uwa.edu.au is
+    live: a bare GET answers HTTP/2 404 with content-type application/json and an Azure
+    request-context header, which is APIM's no-matching-operation response. So UWA demonstrably
+    operates an API gateway; it publishes nothing about what runs on it. No OpenAPI, no product
+    list, and no endpoint is enumerable without an account.
   humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
+  baseURL: https://api.uwa.edu.au/
   tags:
   - API Management
   - Developer Portal
   - Azure
-  - Keys
+  - Gated
   properties:
-  - type: Documentation
-    url: https://api-portal.uwa.edu.au/
-  - type: Signup
-    url: https://api-portal.uwa.edu.au/signup
-- aid: uwa:uwa-activities-api
-  name: University of Western Australia activities API
-  description: The activities API from University of Western Australia — 4 operation(s) for activities.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Activities
-  tags_raw:
-  - activities
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-activities-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-applications-api
-  name: University of Western Australia applications API
-  description: >-
-    The applications API from University of Western Australia — 4 operation(s) for applications.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Application
-  tags_raw:
-  - applications
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-applications-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-author-collaborations-api
-  name: University of Western Australia author-collaborations API
-  description: >-
-    The author-collaborations API from University of Western Australia — 4 operation(s) for author-collaborations.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - author-collaborations
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-author-collaborations-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-awards-api
-  name: University of Western Australia awards API
-  description: The awards API from University of Western Australia — 5 operation(s) for awards.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Awards
-  tags_raw:
-  - awards
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-awards-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-changes-api
-  name: University of Western Australia changes API
-  description: The changes API from University of Western Australia — 1 operation(s) for changes.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Changes
-  tags_raw:
-  - changes
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-changes-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-classification-schemes-api
-  name: University of Western Australia classification-schemes API
-  description: >-
-    The classification-schemes API from University of Western Australia — 4 operation(s) for classification-schemes.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - classification-schemes
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-classification-schemes-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-concepts-api
-  name: University of Western Australia concepts API
-  description: The concepts API from University of Western Australia — 4 operation(s) for concepts.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Concepts
-  tags_raw:
-  - concepts
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-concepts-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-courses-api
-  name: University of Western Australia courses API
-  description: The courses API from University of Western Australia — 6 operation(s) for courses.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Courses
-  tags_raw:
-  - courses
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-courses-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-curricula-vitae-api
-  name: University of Western Australia curricula-vitae API
-  description: >-
-    The curricula-vitae API from University of Western Australia — 4 operation(s) for curricula-vitae.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - curricula-vitae
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-curricula-vitae-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-datasets-api
-  name: University of Western Australia datasets API
-  description: The datasets API from University of Western Australia — 4 operation(s) for datasets.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Datasets
-  tags_raw:
-  - datasets
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-datasets-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-downloads-api
-  name: University of Western Australia downloads API
-  description: The downloads API from University of Western Australia — 3 operation(s) for downloads.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Downloads
-  tags_raw:
-  - downloads
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-downloads-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-equipments-api
-  name: University of Western Australia equipments API
-  description: The equipments API from University of Western Australia — 5 operation(s) for equipments.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - equipments
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-equipments-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-events-api
-  name: University of Western Australia events API
-  description: The events API from University of Western Australia — 4 operation(s) for events.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Event
-  tags_raw:
-  - events
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-events-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-external-organisations-api
-  name: University of Western Australia external-organisations API
-  description: >-
-    The external-organisations API from University of Western Australia — 4 operation(s) for external-organisations.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - external-organisations
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-external-organisations-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-external-persons-api
-  name: University of Western Australia external-persons API
-  description: >-
-    The external-persons API from University of Western Australia — 4 operation(s) for external-persons.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - external-persons
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-external-persons-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-fingerprints-api
-  name: University of Western Australia fingerprints API
-  description: >-
-    The fingerprints API from University of Western Australia — 4 operation(s) for fingerprints.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Fingerprints
-  tags_raw:
-  - fingerprints
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-fingerprints-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-impacts-api
-  name: University of Western Australia impacts API
-  description: The impacts API from University of Western Australia — 4 operation(s) for impacts.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Impacts
-  tags_raw:
-  - impacts
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-impacts-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-journals-api
-  name: University of Western Australia journals API
-  description: The journals API from University of Western Australia — 4 operation(s) for journals.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Journals
-  tags_raw:
-  - journals
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-journals-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-keyword-group-configuration-api
-  name: University of Western Australia keyword-group-configuration API
-  description: >-
-    The keyword-group-configuration API from University of Western Australia — 4 operation(s) for keyword-group-configuration.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags: []
-  tags_raw:
-  - keyword-group-configuration
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-keyword-group-configuration-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-organisational-units-api
-  name: University of Western Australia organisational-units API
-  description: >-
-    The organisational-units API from University of Western Australia — 20 operation(s) for organisational-units.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - organisational-units
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-organisational-units-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-persons-api
-  name: University of Western Australia persons API
-  description: The persons API from University of Western Australia — 29 operation(s) for persons.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Persons
-  tags_raw:
-  - persons
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-persons-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-press-media-api
-  name: University of Western Australia press-media API
-  description: >-
-    The press-media API from University of Western Australia — 4 operation(s) for press-media.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags: []
-  tags_raw:
-  - press-media
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-press-media-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-prizes-api
-  name: University of Western Australia prizes API
-  description: The prizes API from University of Western Australia — 4 operation(s) for prizes.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - prizes
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-prizes-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-projects-api
-  name: University of Western Australia projects API
-  description: The projects API from University of Western Australia — 6 operation(s) for projects.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Project
-  tags_raw:
-  - projects
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-projects-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-publishers-api
-  name: University of Western Australia publishers API
-  description: The publishers API from University of Western Australia — 5 operation(s) for publishers.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Publishers
-  tags_raw:
-  - publishers
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-publishers-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-research-outputs-api
-  name: University of Western Australia research-outputs API
-  description: >-
-    The research-outputs API from University of Western Australia — 6 operation(s) for research-outputs.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - Research Outputs
-  tags_raw:
-  - research-outputs
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-research-outputs-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-semantic-groups-api
-  name: University of Western Australia semantic-groups API
-  description: >-
-    The semantic-groups API from University of Western Australia — 4 operation(s) for semantic-groups.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - semantic-groups
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-semantic-groups-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-- aid: uwa:uwa-thesauri-api
-  name: University of Western Australia thesauri API
-  description: The thesauri API from University of Western Australia — 4 operation(s) for thesauri.
-  humanURL: https://api-portal.uwa.edu.au/
-  baseURL: https://api-portal.uwa.edu.au/
-  tags:
-  - thesauri
-  properties:
-  - type: OpenAPI
-    url: openapi/uwa-thesauri-api-openapi.yml
-  - type: Documentation
-    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
-  - type: Website
-    url: https://research-repository.uwa.edu.au/
-  - type: x-json-schema
-    url: json-schema/
-  - type: x-json-structure
-    url: json-structure/
-  - type: x-examples
-    url: examples/
-  - type: x-spectral-rules
-    url: rules/uwa-rules.yml
-  - type: x-vocabulary
-    url: vocabulary/uwa-vocabulary.yml
-  - type: x-json-ld-context
-    url: json-ld/uwa-context.jsonld
-common:
-  - type: CapabilityMap
-    url: capabilities/uwa-capability-edges.yml
-    name: University of Western Australia Business Capability Map
-  - type: AgenticAccess
-    url: agentic-access/uwa-agentic-access.yml
-  - type: DomainSecurity
-    url: security/uwa-domain-security.yml
-  - type: Authentication
-    url: authentication/uwa-authentication.yml
-  - type: Website
-    url: https://www.uwa.edu.au/
-  - type: GitHub
-    url: https://github.com/uwa
-  - type: LinkedIn
-    url: https://www.linkedin.com/school/the-university-of-western-australia/
-  - type: Twitter
-    url: https://twitter.com/uwanews
   - type: DeveloperPortal
     url: https://api-portal.uwa.edu.au/
-  - type: Plans
-    url: plans/uwa-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/uwa-rate-limits.yml
-  - type: FinOps
-    url: finops/uwa-finops.yml
-  - type: Review
-    url: review.yml
+  - type: Authentication
+    url: authentication/uwa-authentication.yml
+- aid: uwa:research-repository
+  name: UWA Profiles and Research Repository (Elsevier Pure tenancy)
+  x-operator: tenant
+  description: >-
+    UWA's research information system and public research portal, running on Elsevier Pure at
+    research-repository.uwa.edu.au with a CRIS web service at
+    api.research-repository.uwa.edu.au/ws/api/524. The data is UWA's — its researchers, outputs,
+    projects, datasets and DOIs — and the repository is a genuine UWA service. The contract is not
+    UWA's: the OpenAPI served there declares info.title "Pure Web Service 524" and
+    info.contact.name "Elsevier", and it is the same product contract every Pure customer receives.
+    It is recorded here as a tenant relationship only. The spec, and the 28 per-tag OpenAPIs and
+    every schema, example, collection, ruleset, vocabulary and capability map that had been derived
+    from it, were removed from this repo on 2026-08-30 — they were Elsevier's engineering credited
+    to UWA. Access requires a Pure API key issued from the Pure Administrator tab.
+  humanURL: https://research-repository.uwa.edu.au/
+  baseURL: https://api.research-repository.uwa.edu.au/ws/api/524
+  x-vendor: Elsevier
+  x-vendor-product: Pure
+  tags:
+  - Research Repository
+  - CRIS
+  - Research Data
+  - Vendor Platform
+  - Tenant
+  properties:
+  - type: ResearchRepository
+    url: https://research-repository.uwa.edu.au/
+  - type: Documentation
+    url: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
+- aid: uwa:library-catalog
+  name: UWA Library OneSearch (Ex Libris Primo VE tenancy)
+  x-operator: tenant
+  description: >-
+    UWA Library discovery, served from onesearch.library.uwa.edu.au and redirecting to an Ex Libris
+    Primo VE application scoped to vid=61UWA_INST. The tenancy is UWA's; the discovery platform,
+    its APIs and its contract are Ex Libris's. Recorded as a relationship, with no Ex Libris spec
+    saved under this institution.
+  humanURL: https://onesearch.library.uwa.edu.au/
+  baseURL: https://onesearch.library.uwa.edu.au/
+  x-vendor: Ex Libris
+  x-vendor-product: Primo VE
+  tags:
+  - Library
+  - Discovery
+  - Vendor Platform
+  - Tenant
+  properties:
+  - type: LibraryCatalog
+    url: https://onesearch.library.uwa.edu.au/
+common:
+- type: Website
+  url: https://www.uwa.edu.au/
+- type: Blog
+  url: https://www.uwa.edu.au/news
+- type: Support
+  url: https://www.uwa.edu.au/contact-us
+- type: PrivacyPolicy
+  url: https://www.uwa.edu.au/privacy
+- type: TermsOfService
+  url: https://www.uwa.edu.au/disclaimer-copyright
+- type: GitHubOrganization
+  url: https://github.com/uwa
+- type: LinkedIn
+  url: https://www.linkedin.com/school/the-university-of-western-australia/
+- type: Twitter
+  url: https://x.com/uwanews
+- type: DeveloperPortal
+  url: https://api-portal.uwa.edu.au/
+- type: IdentityFederation
+  url: https://idp.uwa.edu.au/idp/shibboleth
+- type: ResearchRepository
+  url: https://research-repository.uwa.edu.au/
+- type: LibraryCatalog
+  url: https://onesearch.library.uwa.edu.au/
+- type: CourseCatalog
+  url: https://www.handbooks.uwa.edu.au/
+- type: AIPolicy
+  url: https://guides.library.uwa.edu.au/artificial_intelligence
+- type: AIPolicy
+  url: https://www.uwa.edu.au/students/-/media/project/uwa/uwa/students/academic-support/using-artificial-intelligence-tools-at-uwa---a-guide-for-students-(2026).pdf
+- type: Authentication
+  url: authentication/uwa-authentication.yml
+- type: Conformance
+  url: conformance/uwa-conformance.yml
+- type: DomainSecurity
+  url: security/uwa-domain-security.yml
+- type: Plans
+  url: plans/uwa-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/uwa-rate-limits.yml
+- type: FinOps
+  url: finops/uwa-finops.yml
+- type: Review
+  url: review.yml
+x-coverage:
+  state: covered
+  reason: covered
+  generated: '2026-08-30'
+  method: probed
+  detail: >-
+    UWA operates two real, machine-readable, institution-owned surfaces and both were read in full:
+    an unauthenticated OAI-PMH 2.0 endpoint at api.research-repository.uwa.edu.au/ws/oai (all six
+    verbs 200, 167 sets, five metadata prefixes) and a Shibboleth SAML 2.0 identity provider
+    publishing federation metadata at idp.uwa.edu.au/idp/shibboleth. Beyond those two the footprint
+    is genuinely thin and the thinness is structural rather than a gap in this run. UWA's Azure API
+    Management estate is live — the gateway at api.uwa.edu.au answers as APIM — but the developer
+    portal at api-portal.uwa.edu.au serves the stock Azure shell with the catalog behind sign-in
+    and a 404 on /signup, so nothing there is enumerable. The two largest apparent APIs are vendor
+    contracts under UWA tenancy: Elsevier Pure at /ws/api/524 (info.contact.name "Elsevier") and Ex
+    Libris Primo VE at onesearch.library.uwa.edu.au; both are recorded as x-operator tenant and
+    neither spec is saved here. No open data portal exists — data.uwa.edu.au and
+    data.research.uwa.edu.au do not resolve. No public course, timetable, transit or room-booking
+    API was found; handbooks.uwa.edu.au and resourcebooker.uwa.edu.au are HTML applications. The
+    github.com/uwa organisation is verified as The University of Western Australia but holds zero
+    public repositories. UWA publishes no first-party OpenAPI of any kind.
+  evidence:
+  - url: https://api.research-repository.uwa.edu.au/ws/oai?verb=Identify
+    status: 200
+  - url: https://api.research-repository.uwa.edu.au/ws/oai?verb=ListSets
+    status: 200
+  - url: https://api.research-repository.uwa.edu.au/ws/oai?verb=ListRecords&metadataPrefix=oai_dc
+    status: 200
+  - url: https://idp.uwa.edu.au/idp/shibboleth
+    status: 200
+  - url: https://api-portal.uwa.edu.au/
+    status: 200
+  - url: https://api-portal.uwa.edu.au/signup
+    status: 404
+  - url: https://api.uwa.edu.au/
+    status: 404
+  - url: https://api.research-repository.uwa.edu.au/ws/api/524/openapi.yaml
+    status: 401
+  - url: https://research-repository.uwa.edu.au/
+    status: 200
+  - url: https://onesearch.library.uwa.edu.au/
+    status: 200
+  - url: https://data.uwa.edu.au/
+    status: 0
+  - url: https://research.uwa.edu.au/
+    status: 0
+  - url: https://www.uwa.edu.au/llms.txt
+    status: 404
+  - url: https://www.uwa.edu.au/.well-known/security.txt
+    status: 404
+  - url: https://idp.uwa.edu.au/.well-known/openid-configuration
+    status: 404
+x-enrichment:
+  contract: 0-working/pipeline-university.md
+  run: '2026-08-30'
+  method: probed
+  note: >-
+    Re-profiled under the university pipeline's operator axis. The June 2026 profile carried 29
+    apis[] entries, 28 of which were per-tag splits of a single Elsevier Pure Web Service contract
+    that had additionally been mis-based onto the Azure portal host in apis.yml. Those 28 entries,
+    the 28 refined OpenAPIs, the pristine source spec and all 92 artifacts derived from it were
+    removed. Two genuinely institution-operated surfaces were found and added: an open OAI-PMH 2.0
+    endpoint and a Shibboleth SAML 2.0 identity provider. This correction is expected to lower
+    UWA's Kin Score, because the score it previously carried was Elsevier's.
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: API Evangelist
+  email: info@apievangelist.com
