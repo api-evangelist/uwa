@@ -44,7 +44,7 @@ accessModel:
   - authentication
   generated: '2026-08-30'
   method: probed
-position: Consumer
+position: Consuming
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/uwa.png
 url: https://raw.githubusercontent.com/api-evangelist/uwa/refs/heads/main/apis.yml
