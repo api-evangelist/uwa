@@ -83,6 +83,11 @@ apis:
   - Identity Federation
   - SAML
   - Shibboleth
+  - SSO
+  tags_raw:
+  - Identity Federation
+  - SAML
+  - Shibboleth
   - Single Sign-On
   properties:
   - type: IdentityFederation
@@ -133,6 +138,12 @@ apis:
   x-vendor-product: Pure
   tags:
   - Research Repository
+  - CRI
+  - Research Data
+  - Vendor Platform
+  - Tenants
+  tags_raw:
+  - Research Repository
   - CRIS
   - Research Data
   - Vendor Platform
@@ -158,6 +169,11 @@ apis:
   - Library
   - Discovery
   - Vendor Platform
+  - Tenants
+  tags_raw:
+  - Library
+  - Discovery
+  - Vendor Platform
   - Tenant
   properties:
   - type: LibraryCatalog
@@ -168,6 +184,8 @@ apis:
   humanURL: https://research-repository.uwa.edu.au/
   baseURL: https://api.research-repository.uwa.edu.au/ws/oai
   tags:
+  - OAI-PMH
+  tags_raw:
   - oai-pmh
   properties:
   - type: OpenAPI
