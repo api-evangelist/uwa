@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd https://www.openaire.eu/cerif-profile/1.2/ https://www.openaire.eu/schema/cris/1.2/openaire-cerif-profile.xsd">
+  <responseDate>2026-08-30T21:22:56Z</responseDate>
+  <request verb="ListSets">https://api.research-repository.uwa.edu.au/ws/oai</request>
+  <ListSets>
+    <set>
+      <setSpec>persons:all</setSpec>
+      <setName>PURE Persons</setName>
+    </set>
+    <set>
+      <setSpec>publications:all</setSpec>
+      <setName>PURE publications</setName>
+    </set>
+    <set>
+      <setSpec>publications:withFiles</setSpec>
+      <setName>PURE publications (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1946</setSpec>
+      <setName>PURE publications published in the year 1946</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1946:withFiles</setSpec>
+      <setName>PURE publications published in the year 1946 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1947</setSpec>
+      <setName>PURE publications published in the year 1947</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1947:withFiles</setSpec>
+      <setName>PURE publications published in the year 1947 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1948</setSpec>
+      <setName>PURE publications published in the year 1948</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1948:withFiles</setSpec>
+      <setName>PURE publications published in the year 1948 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1949</setSpec>
+      <setName>PURE publications published in the year 1949</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1949:withFiles</setSpec>
+      <setName>PURE publications published in the year 1949 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1950</setSpec>
+      <setName>PURE publications published in the year 1950</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1950:withFiles</setSpec>
+      <setName>PURE publications published in the year 1950 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1951</setSpec>
+      <setName>PURE publications published in the year 1951</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1951:withFiles</setSpec>
+      <setName>PURE publications published in the year 1951 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1952</setSpec>
+      <setName>PURE publications published in the year 1952</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1952:withFiles</setSpec>
+      <setName>PURE publications published in the year 1952 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1953</setSpec>
+      <setName>PURE publications published in the year 1953</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1953:withFiles</setSpec>
+      <setName>PURE publications published in the year 1953 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1954</setSpec>
+      <setName>PURE publications published in the year 1954</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1954:withFiles</setSpec>
+      <setName>PURE publications published in the year 1954 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1955</setSpec>
+      <setName>PURE publications published in the year 1955</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1955:withFiles</setSpec>
+      <setName>PURE publications published in the year 1955 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1956</setSpec>
+      <setName>PURE publications published in the year 1956</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1956:withFiles</setSpec>
+      <setName>PURE publications published in the year 1956 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1957</setSpec>
+      <setName>PURE publications published in the year 1957</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1957:withFiles</setSpec>
+      <setName>PURE publications published in the year 1957 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1958</setSpec>
+      <setName>PURE publications published in the year 1958</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1958:withFiles</setSpec>
+      <setName>PURE publications published in the year 1958 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1959</setSpec>
+      <setName>PURE publications published in the year 1959</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1959:withFiles</setSpec>
+      <setName>PURE publications published in the year 1959 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1960</setSpec>
+      <setName>PURE publications published in the year 1960</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1960:withFiles</setSpec>
+      <setName>PURE publications published in the year 1960 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1961</setSpec>
+      <setName>PURE publications published in the year 1961</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1961:withFiles</setSpec>
+      <setName>PURE publications published in the year 1961 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1962</setSpec>
+      <setName>PURE publications published in the year 1962</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1962:withFiles</setSpec>
+      <setName>PURE publications published in the year 1962 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1963</setSpec>
+      <setName>PURE publications published in the year 1963</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1963:withFiles</setSpec>
+      <setName>PURE publications published in the year 1963 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1964</setSpec>
+      <setName>PURE publications published in the year 1964</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1964:withFiles</setSpec>
+      <setName>PURE publications published in the year 1964 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1965</setSpec>
+      <setName>PURE publications published in the year 1965</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1965:withFiles</setSpec>
+      <setName>PURE publications published in the year 1965 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1966</setSpec>
+      <setName>PURE publications published in the year 1966</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1966:withFiles</setSpec>
+      <setName>PURE publications published in the year 1966 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1967</setSpec>
+      <setName>PURE publications published in the year 1967</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1967:withFiles</setSpec>
+      <setName>PURE publications published in the year 1967 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1968</setSpec>
+      <setName>PURE publications published in the year 1968</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1968:withFiles</setSpec>
+      <setName>PURE publications published in the year 1968 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1969</setSpec>
+      <setName>PURE publications published in the year 1969</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1969:withFiles</setSpec>
+      <setName>PURE publications published in the year 1969 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1970</setSpec>
+      <setName>PURE publications published in the year 1970</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1970:withFiles</setSpec>
+      <setName>PURE publications published in the year 1970 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1971</setSpec>
+      <setName>PURE publications published in the year 1971</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1971:withFiles</setSpec>
+      <setName>PURE publications published in the year 1971 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1972</setSpec>
+      <setName>PURE publications published in the year 1972</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1972:withFiles</setSpec>
+      <setName>PURE publications published in the year 1972 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1973</setSpec>
+      <setName>PURE publications published in the year 1973</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1973:withFiles</setSpec>
+      <setName>PURE publications published in the year 1973 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1974</setSpec>
+      <setName>PURE publications published in the year 1974</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1974:withFiles</setSpec>
+      <setName>PURE publications published in the year 1974 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1975</setSpec>
+      <setName>PURE publications published in the year 1975</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1975:withFiles</setSpec>
+      <setName>PURE publications published in the year 1975 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1976</setSpec>
+      <setName>PURE publications published in the year 1976</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1976:withFiles</setSpec>
+      <setName>PURE publications published in the year 1976 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1977</setSpec>
+      <setName>PURE publications published in the year 1977</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1977:withFiles</setSpec>
+      <setName>PURE publications published in the year 1977 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1978</setSpec>
+      <setName>PURE publications published in the year 1978</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1978:withFiles</setSpec>
+      <setName>PURE publications published in the year 1978 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1979</setSpec>
+      <setName>PURE publications published in the year 1979</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1979:withFiles</setSpec>
+      <setName>PURE publications published in the year 1979 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1980</setSpec>
+      <setName>PURE publications published in the year 1980</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1980:withFiles</setSpec>
+      <setName>PURE publications published in the year 1980 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1981</setSpec>
+      <setName>PURE publications published in the year 1981</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1981:withFiles</setSpec>
+      <setName>PURE publications published in the year 1981 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1982</setSpec>
+      <setName>PURE publications published in the year 1982</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1982:withFiles</setSpec>
+      <setName>PURE publications published in the year 1982 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1983</setSpec>
+      <setName>PURE publications published in the year 1983</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1983:withFiles</setSpec>
+      <setName>PURE publications published in the year 1983 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1984</setSpec>
+      <setName>PURE publications published in the year 1984</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1984:withFiles</setSpec>
+      <setName>PURE publications published in the year 1984 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1985</setSpec>
+      <setName>PURE publications published in the year 1985</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1985:withFiles</setSpec>
+      <setName>PURE publications published in the year 1985 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1986</setSpec>
+      <setName>PURE publications published in the year 1986</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1986:withFiles</setSpec>
+      <setName>PURE publications published in the year 1986 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1987</setSpec>
+      <setName>PURE publications published in the year 1987</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1987:withFiles</setSpec>
+      <setName>PURE publications published in the year 1987 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1988</setSpec>
+      <setName>PURE publications published in the year 1988</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1988:withFiles</setSpec>
+      <setName>PURE publications published in the year 1988 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1989</setSpec>
+      <setName>PURE publications published in the year 1989</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1989:withFiles</setSpec>
+      <setName>PURE publications published in the year 1989 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1990</setSpec>
+      <setName>PURE publications published in the year 1990</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1990:withFiles</setSpec>
+      <setName>PURE publications published in the year 1990 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1991</setSpec>
+      <setName>PURE publications published in the year 1991</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1991:withFiles</setSpec>
+      <setName>PURE publications published in the year 1991 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1992</setSpec>
+      <setName>PURE publications published in the year 1992</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1992:withFiles</setSpec>
+      <setName>PURE publications published in the year 1992 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1993</setSpec>
+      <setName>PURE publications published in the year 1993</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1993:withFiles</setSpec>
+      <setName>PURE publications published in the year 1993 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1994</setSpec>
+      <setName>PURE publications published in the year 1994</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1994:withFiles</setSpec>
+      <setName>PURE publications published in the year 1994 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1995</setSpec>
+      <setName>PURE publications published in the year 1995</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1995:withFiles</setSpec>
+      <setName>PURE publications published in the year 1995 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1996</setSpec>
+      <setName>PURE publications published in the year 1996</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1996:withFiles</setSpec>
+      <setName>PURE publications published in the year 1996 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1997</setSpec>
+      <setName>PURE publications published in the year 1997</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1997:withFiles</setSpec>
+      <setName>PURE publications published in the year 1997 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1998</setSpec>
+      <setName>PURE publications published in the year 1998</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1998:withFiles</setSpec>
+      <setName>PURE publications published in the year 1998 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1999</setSpec>
+      <setName>PURE publications published in the year 1999</setName>
+    </set>
+    <set>
+      <setSpec>publications:year1999:withFiles</setSpec>
+      <setName>PURE publications published in the year 1999 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2000</setSpec>
+      <setName>PURE publications published in the year 2000</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2000:withFiles</setSpec>
+      <setName>PURE publications published in the year 2000 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2001</setSpec>
+      <setName>PURE publications published in the year 2001</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2001:withFiles</setSpec>
+      <setName>PURE publications published in the year 2001 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2002</setSpec>
+      <setName>PURE publications published in the year 2002</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2002:withFiles</setSpec>
+      <setName>PURE publications published in the year 2002 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2003</setSpec>
+      <setName>PURE publications published in the year 2003</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2003:withFiles</setSpec>
+      <setName>PURE publications published in the year 2003 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2004</setSpec>
+      <setName>PURE publications published in the year 2004</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2004:withFiles</setSpec>
+      <setName>PURE publications published in the year 2004 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2005</setSpec>
+      <setName>PURE publications published in the year 2005</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2005:withFiles</setSpec>
+      <setName>PURE publications published in the year 2005 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2006</setSpec>
+      <setName>PURE publications published in the year 2006</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2006:withFiles</setSpec>
+      <setName>PURE publications published in the year 2006 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2007</setSpec>
+      <setName>PURE publications published in the year 2007</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2007:withFiles</setSpec>
+      <setName>PURE publications published in the year 2007 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2008</setSpec>
+      <setName>PURE publications published in the year 2008</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2008:withFiles</setSpec>
+      <setName>PURE publications published in the year 2008 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2009</setSpec>
+      <setName>PURE publications published in the year 2009</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2009:withFiles</setSpec>
+      <setName>PURE publications published in the year 2009 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2010</setSpec>
+      <setName>PURE publications published in the year 2010</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2010:withFiles</setSpec>
+      <setName>PURE publications published in the year 2010 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2011</setSpec>
+      <setName>PURE publications published in the year 2011</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2011:withFiles</setSpec>
+      <setName>PURE publications published in the year 2011 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2012</setSpec>
+      <setName>PURE publications published in the year 2012</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2012:withFiles</setSpec>
+      <setName>PURE publications published in the year 2012 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2013</setSpec>
+      <setName>PURE publications published in the year 2013</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2013:withFiles</setSpec>
+      <setName>PURE publications published in the year 2013 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2014</setSpec>
+      <setName>PURE publications published in the year 2014</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2014:withFiles</setSpec>
+      <setName>PURE publications published in the year 2014 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2015</setSpec>
+      <setName>PURE publications published in the year 2015</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2015:withFiles</setSpec>
+      <setName>PURE publications published in the year 2015 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2016</setSpec>
+      <setName>PURE publications published in the year 2016</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2016:withFiles</setSpec>
+      <setName>PURE publications published in the year 2016 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2017</setSpec>
+      <setName>PURE publications published in the year 2017</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2017:withFiles</setSpec>
+      <setName>PURE publications published in the year 2017 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2018</setSpec>
+      <setName>PURE publications published in the year 2018</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2018:withFiles</setSpec>
+      <setName>PURE publications published in the year 2018 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2019</setSpec>
+      <setName>PURE publications published in the year 2019</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2019:withFiles</setSpec>
+      <setName>PURE publications published in the year 2019 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2020</setSpec>
+      <setName>PURE publications published in the year 2020</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2020:withFiles</setSpec>
+      <setName>PURE publications published in the year 2020 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2021</setSpec>
+      <setName>PURE publications published in the year 2021</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2021:withFiles</setSpec>
+      <setName>PURE publications published in the year 2021 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2022</setSpec>
+      <setName>PURE publications published in the year 2022</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2022:withFiles</setSpec>
+      <setName>PURE publications published in the year 2022 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2023</setSpec>
+      <setName>PURE publications published in the year 2023</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2023:withFiles</setSpec>
+      <setName>PURE publications published in the year 2023 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2024</setSpec>
+      <setName>PURE publications published in the year 2024</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2024:withFiles</setSpec>
+      <setName>PURE publications published in the year 2024 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2025</setSpec>
+      <setName>PURE publications published in the year 2025</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2025:withFiles</setSpec>
+      <setName>PURE publications published in the year 2025 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2026</setSpec>
+      <setName>PURE publications published in the year 2026</setName>
+    </set>
+    <set>
+      <setSpec>publications:year2026:withFiles</setSpec>
+      <setName>PURE publications published in the year 2026 (with associated files)</setName>
+    </set>
+    <set>
+      <setSpec>openaire</setSpec>
+      <setName>OpenAIRE</setName>
+    </set>
+    <set>
+      <setSpec>datasets:all</setSpec>
+      <setName>PURE DataSets</setName>
+    </set>
+  </ListSets>
+</OAI-PMH>

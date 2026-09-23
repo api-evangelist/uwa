@@ -64,7 +64,7 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-The University of Western Australia (UWA) is a public research university in Perth, Western Australia, ranked #80 in the QS World University Rankings 2025. This repository catalogs UWA's public developer and API footprint as an APIs.json provider profile for the API Evangelist network.
+The University of Western Australia (UWA) is a public research university in Perth, Western Australia, and a member of the Group of Eight. This repository catalogs UWA's public developer and API footprint as an APIs.json provider profile for the API Evangelist network.
 
 - APIs.json: https://raw.githubusercontent.com/api-evangelist/uwa/refs/heads/main/apis.yml
 - Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=uwa-api-evangelist&utm_content=repo
@@ -74,39 +74,82 @@ The University of Western Australia (UWA) is a public research university in Per
 - Index
 - Consumer
 - 3rd-Party
+- University (Public Research University)
 
 ## Tags
 
-Education, Higher Education, University, Research, Australia, Perth
+Education, Higher Education, University, Australia, Group of Eight, Perth, Research, Research Data, Research Repository, Identity Federation, OAI-PMH, Library
 
-## APIs
+## Who operates what
 
-- **UWA Developer Portal (Azure API Management)** — Microsoft Azure API Management developer portal for discovering, trying, and subscribing to UWA APIs and products via API keys (gated behind sign-in). Docs: https://api-portal.uwa.edu.au/
-- **UWA Profiles and Research Repository (Pure CRIS Web Service)** — Elsevier Pure CRIS Web Service exposing research outputs, people, organisations, projects, and activities; API key required. Docs: https://api.research-repository.uwa.edu.au/ws/api/524/api-docs/documentation/Default.htm
+Every surface below carries an `x-operator` in `apis.yml`. For a university that distinction matters more than artifact count: **institution** means UWA runs the thing the contract describes; **tenant** means UWA is a customer on a vendor platform, so the data is UWA's and the contract is the vendor's.
 
-## Plans / Rate Limits / FinOps
+### Institution-operated
 
+- **UWA Research Repository OAI-PMH** (`institution`) — open, unauthenticated OAI-PMH 2.0 harvesting at `https://api.research-repository.uwa.edu.au/ws/oai`. All six verbs returned 200 with no credential on 2026-08-30; 167 sets, five metadata prefixes (`oai_dc`, `qdc`, `mods`, `xmetadiss`, `nl_didl`), OpenAIRE CERIF 1.2 schema location. The repository software underneath is Elsevier Pure, but OAI-PMH is an open standard on UWA's own host with a UWA admin contact. Description: [openapi/uwa-oai-pmh-openapi.yml](openapi/uwa-oai-pmh-openapi.yml) — authored by API Evangelist from live probes, not published by UWA.
+- **UWA Shibboleth Identity Provider** (`institution`) — signed SAML 2.0 federation metadata at `https://idp.uwa.edu.au/idp/shibboleth`, scoped to `uwa.edu.au`, HTTP-POST and HTTP-Redirect SSO bindings.
+- **UWA API Gateway and Developer Portal** (`institution`) — Azure API Management. The gateway at `api.uwa.edu.au` is live (HTTP/2 404 + `application/json` + Azure `request-context`); the portal at `api-portal.uwa.edu.au` serves the stock Azure shell with the catalog behind sign-in and a 404 on `/signup`. Nothing is enumerable.
+
+### Tenant (vendor platform, UWA tenancy)
+
+- **UWA Profiles and Research Repository** (`tenant`) — Elsevier **Pure**, portal at `research-repository.uwa.edu.au`, CRIS web service at `api.research-repository.uwa.edu.au/ws/api/524`. The spec served there declares `info.title: Pure Web Service 524` and `info.contact.name: Elsevier`.
+- **UWA Library OneSearch** (`tenant`) — Ex Libris **Primo VE**, tenant `61UWA_INST`.
+
+## Correction, 2026-08-30
+
+This profile was rebuilt under the university pipeline's operator axis. The June 2026 profile carried **29 `apis[]` entries, 28 of which were per-tag splits of one Elsevier Pure Web Service contract**, and those 28 entries additionally declared `baseURL: https://api-portal.uwa.edu.au/` while the specs' own `servers[]` said `api.research-repository.uwa.edu.au`. Removed in this run: the 28 refined per-tag OpenAPIs, the pristine Pure source spec, and every artifact derived from it — 57 Postman/OpenCollection files, 5 JSON Schemas, 5 JSON Structures, 5 examples, a JSON-LD context, a Pure vocabulary, two Spectral rulesets, an authentication summary, an agentic-access classification and a capability map. None of it was UWA's engineering.
+
+Added: an OAI-PMH description and real probed responses, a conformance record, a probed authentication summary, and a deployment vocabulary read off UWA's own endpoint. **This correction lowers UWA's Kin Score, and that is the point** — the score it previously carried was Elsevier's.
+
+## Standards conformance (Kin Score `education` regime)
+
+Confirmed from response bodies, not prose claims — see [conformance/uwa-conformance.yml](conformance/uwa-conformance.yml):
+
+- `oai-pmh` — **yes**, all six verbs 200, unauthenticated
+- `shibboleth` — **yes**, Shibboleth IdP metadata with `shibmd:Scope uwa.edu.au`
+- `saml` — **yes**, SAML 2.0 `EntityDescriptor` / `IDPSSODescriptor`
+- `openaire-cerif-1.2` — partial (schema location + `openaire` set observed, XSD not validated)
+- `crossref` — partial (Crossref DOIs in harvested `dc:identifier`; not evidence of membership)
+- `orcid`, `datacite`, `scim`, `lti`, `oneroster`, `ed-fi`, `caliper`, `qti` — not found
+
+## Artifacts
+
+- OpenAPI: [openapi/uwa-oai-pmh-openapi.yml](openapi/uwa-oai-pmh-openapi.yml) · pristine copy in [openapi/_original/](openapi/_original/)
+- Examples (real probed responses): [examples/](examples/)
+- Vocabulary: [vocabulary/uwa-vocabulary.yml](vocabulary/uwa-vocabulary.yml)
+- Conformance: [conformance/uwa-conformance.yml](conformance/uwa-conformance.yml)
+- Authentication: [authentication/uwa-authentication.yml](authentication/uwa-authentication.yml)
+- Domain security: [security/uwa-domain-security.yml](security/uwa-domain-security.yml)
 - Plans: [plans/uwa-plans-pricing.yml](plans/uwa-plans-pricing.yml)
-- Rate Limits: [rate-limits/uwa-rate-limits.yml](rate-limits/uwa-rate-limits.yml)
+- Rate limits: [rate-limits/uwa-rate-limits.yml](rate-limits/uwa-rate-limits.yml)
 - FinOps: [finops/uwa-finops.yml](finops/uwa-finops.yml)
 
 ## Timestamps
 
 - Created: 2026-06-03
-- Modified: 2026-06-03
+- Modified: 2026-08-30
 
 ## Common Properties
 
 - Website: https://www.uwa.edu.au/
-- GitHub: https://github.com/uwa
+- News: https://www.uwa.edu.au/news
+- Privacy: https://www.uwa.edu.au/privacy
+- Disclaimer / copyright: https://www.uwa.edu.au/disclaimer-copyright
+- Support: https://www.uwa.edu.au/contact-us
+- GitHub: https://github.com/uwa (verified as The University of Western Australia; zero public repositories)
 - LinkedIn: https://www.linkedin.com/school/the-university-of-western-australia/
-- Twitter: https://twitter.com/uwanews
+- X: https://x.com/uwanews
 - Developer Portal: https://api-portal.uwa.edu.au/
+- Identity Federation: https://idp.uwa.edu.au/idp/shibboleth
+- Research Repository: https://research-repository.uwa.edu.au/
+- Library Catalog: https://onesearch.library.uwa.edu.au/
+- Course Catalog: https://www.handbooks.uwa.edu.au/
+- AI guidance: https://guides.library.uwa.edu.au/artificial_intelligence
 - Review: [review.yml](review.yml)
 
 ## Notes
 
-Findings reflect publicly observable surfaces as of 2026-06-03. The Azure API Management portal (api-portal.uwa.edu.au) is a JavaScript application whose product/API catalog sits behind sign-in, so individual endpoints could not be publicly enumerated. The research repository runs Elsevier Pure CRIS and requires an API key for calls. The official github.com/uwa organization exists but had no public repositories at review time. No public open-data, course/timetable, or OAI-PMH endpoint was confirmed. No endpoints were fabricated.
+Findings reflect publicly observable surfaces probed on 2026-08-30. No open data portal exists — `data.uwa.edu.au` and `data.research.uwa.edu.au` do not resolve. No public course, timetable, transit or room-booking API was found; `handbooks.uwa.edu.au` and `resourcebooker.uwa.edu.au` are HTML applications. `/.well-known/security.txt` and `llms.txt` return 404, and `idp.uwa.edu.au/.well-known/openid-configuration` returns 404 — UWA's federation surface is SAML, not OIDC. UWA publishes no first-party OpenAPI of any kind. No endpoints were fabricated.
 
 ## Maintainers
 

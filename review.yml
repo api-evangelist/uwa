@@ -3,8 +3,67 @@ name: University of Western Australia
 description: University of Western Australia public developer/API footprint review for APIs.json cataloging.
 url: https://raw.githubusercontent.com/api-evangelist/uwa/refs/heads/main/review.yml
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 reviews:
+  - date: '2026-08-30'
+    rating: 2
+    summary: >-
+      Re-profiled under the university pipeline's operator axis. The 2026-06-03 review's
+      conclusion that "no OAI-PMH endpoint was confirmed" was wrong: UWA operates a fully
+      open, unauthenticated OAI-PMH 2.0 endpoint at
+      api.research-repository.uwa.edu.au/ws/oai — all six verbs returned 200 with no
+      credential, advertising 167 sets and five metadata prefixes. Also found and added: a
+      Shibboleth SAML 2.0 identity provider publishing federation metadata at
+      idp.uwa.edu.au/idp/shibboleth, and a live Azure APIM gateway at api.uwa.edu.au.
+      Removed as misattributed: 28 per-tag OpenAPIs and their pristine source, which were
+      Elsevier's Pure Web Service contract (info.title "Pure Web Service 524",
+      info.contact.name "Elsevier") credited to UWA, plus 92 artifacts derived from it. The
+      Pure repository and Ex Libris Primo VE discovery layer are now recorded as
+      x-operator tenant relationships rather than UWA contracts. This lowers UWA's score,
+      correctly — the score it carried was Elsevier's.
+    endpoints:
+      - url: https://api.research-repository.uwa.edu.au/ws/oai?verb=Identify
+        status: 200
+        note: >-
+          OAI-PMH 2.0. repositoryName "Pure OAI Repository", adminEmail
+          help-repository@uwa.edu.au, earliestDatestamp 2014-08-20T07:32:52Z, deletedRecord no.
+      - url: https://api.research-repository.uwa.edu.au/ws/oai?verb=ListSets
+        status: 200
+        note: 167 sets — persons:all, publications:all/:withFiles, publications:year1946..2026, openaire, datasets:all.
+      - url: https://api.research-repository.uwa.edu.au/ws/oai?verb=ListMetadataFormats
+        status: 200
+        note: oai_dc, qdc, mods, xmetadiss, nl_didl.
+      - url: https://api.research-repository.uwa.edu.au/ws/oai?verb=ListRecords&metadataPrefix=oai_dc
+        status: 200
+        note: Full records returned unauthenticated; Crossref DOIs present in dc:identifier on publications.
+      - url: https://idp.uwa.edu.au/idp/shibboleth
+        status: 200
+        note: >-
+          SAML 2.0 EntityDescriptor / IDPSSODescriptor, shibmd:Scope uwa.edu.au, HTTP-POST and
+          HTTP-Redirect SSO bindings, transient NameID. 5,081 bytes.
+      - url: https://api.uwa.edu.au/
+        status: 404
+        note: >-
+          Live Azure APIM gateway — HTTP/2 404 with content-type application/json and an Azure
+          request-context header. Gateway confirmed; nothing on it is enumerable.
+      - url: https://api-portal.uwa.edu.au/signup
+        status: 404
+        note: The developer portal's own documented signup path is dead.
+      - url: https://api.research-repository.uwa.edu.au/ws/api/524/openapi.yaml
+        status: 401
+        note: Elsevier Pure Web Service. Live but key-gated; vendor contract, recorded as tenant.
+      - url: https://onesearch.library.uwa.edu.au/
+        status: 200
+        note: Redirects to Ex Libris Primo VE, vid=61UWA_INST. Vendor contract, recorded as tenant.
+      - url: https://data.uwa.edu.au/
+        status: 0
+        note: Does not resolve. No open data portal.
+      - url: https://www.uwa.edu.au/.well-known/security.txt
+        status: 404
+        note: No RFC 9116 security.txt on the primary host.
+      - url: https://idp.uwa.edu.au/.well-known/openid-configuration
+        status: 404
+        note: Federation surface is SAML, not OIDC.
   - date: '2026-06-03'
     rating: 2
     summary: >-

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd https://www.openaire.eu/cerif-profile/1.2/ https://www.openaire.eu/schema/cris/1.2/openaire-cerif-profile.xsd">
+  <responseDate>2026-08-30T21:22:49Z</responseDate>
+  <request verb="ListMetadataFormats">https://api.research-repository.uwa.edu.au/ws/oai</request>
+  <ListMetadataFormats>
+    <metadataFormat>
+      <metadataPrefix>oai_dc</metadataPrefix>
+      <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema>
+      <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace>
+    </metadataFormat>
+    <metadataFormat>
+      <metadataPrefix>xmetadiss</metadataPrefix>
+      <schema>http://files.dnb.de/standards/xmetadiss/xmetadiss.xsd</schema>
+      <metadataNamespace>http://www.d-nb.de/standards/xmetadissplus/</metadataNamespace>
+    </metadataFormat>
+    <metadataFormat>
+      <metadataPrefix>mods</metadataPrefix>
+      <schema>http://www.loc.gov/mods/v3/mods-3-8.xsd</schema>
+      <metadataNamespace>http://www.loc.gov/mods/v3</metadataNamespace>
+    </metadataFormat>
+    <metadataFormat>
+      <metadataPrefix>nl_didl</metadataPrefix>
+      <schema>http://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-21_schema_files/did/didl.xsd</schema>
+      <metadataNamespace>urn:mpeg:mpeg21:2002:02-DIDL-NS</metadataNamespace>
+    </metadataFormat>
+    <metadataFormat>
+      <metadataPrefix>qdc</metadataPrefix>
+      <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema>
+      <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace>
+    </metadataFormat>
+  </ListMetadataFormats>
+</OAI-PMH>

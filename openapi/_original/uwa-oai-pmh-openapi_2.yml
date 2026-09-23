@@ -1,0 +1,143 @@
+# x-archived-from: uwa-oai-pmh-openapi.yml
+# x-archived-on: 2026-09-16
+openapi: 3.1.0
+x-generated: '2026-08-30'
+x-method: probed
+x-source: >-
+  Hand-authored from live probes of https://api.research-repository.uwa.edu.au/ws/oai on
+  2026-08-30. Every verb below was requested and returned HTTP 200 with a well-formed
+  OAI-PMH 2.0 response. The endpoint itself publishes no machine-readable description; this
+  document describes the OAI-PMH 2.0 protocol AS DEPLOYED at UWA, including the set list and
+  metadata prefixes the endpoint actually advertises. It is API Evangelist's description of a
+  UWA-operated endpoint, not a contract UWA publishes.
+x-operator: institution
+info:
+  title: UWA Research Repository OAI-PMH
+  version: '2.0'
+  summary: >-
+    Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) 2.0 endpoint operated by
+    the University of Western Australia over its research repository.
+  description: >-
+    The University of Western Australia operates a public, unauthenticated OAI-PMH 2.0 harvesting
+    endpoint at https://api.research-repository.uwa.edu.au/ws/oai. The Identify response names the
+    repository "Pure OAI Repository" with adminEmail help-repository@uwa.edu.au and an
+    earliestDatestamp of 2014-08-20, and every response is schema-located against both the OAI-PMH
+    2.0 schema and the OpenAIRE CERIF 1.2 profile.
+
+    The repository software underneath is Elsevier Pure — a vendor product — but OAI-PMH is an open
+    standard rather than a vendor contract, the endpoint runs on UWA's own registrable domain, and
+    the administrative contact is a UWA address. It is therefore recorded here as
+    institution-operated. The Pure Web Service that sits alongside it at /ws/api/524 is NOT: that
+    is Elsevier's own contract ("Pure Web Service 524", info.contact.name "Elsevier") and it is
+    recorded in apis.yml as a tenant relationship with no spec saved under this institution.
+
+    No API key is required. Responses are XML. The verb, metadataPrefix, set and resumptionToken
+    parameters follow OAI-PMH 2.0 exactly; protocol errors are returned inside a 200 response as an
+    <error> element with an OAI-PMH error code, not as an HTTP status.
+  contact:
+    name: UWA Research Repository support
+    email: help-repository@uwa.edu.au
+    url: https://research-repository.uwa.edu.au/
+  license:
+    name: Open Archives Initiative Protocol for Metadata Harvesting 2.0
+    url: http://www.openarchives.org/OAI/openarchivesprotocol.html
+servers:
+- url: https://api.research-repository.uwa.edu.au/ws
+  description: UWA research repository harvesting host (probed 2026-08-30)
+tags:
+- name: oai-pmh
+  description: OAI-PMH 2.0 verbs exposed by the UWA research repository.
+paths:
+  /oai:
+    get:
+      tags:
+      - oai-pmh
+      summary: OAI-PMH 2.0 request
+      operationId: oaiRequest
+      description: >-
+        Single OAI-PMH entry point. The `verb` parameter selects the operation. All six OAI-PMH 2.0
+        verbs were probed against this endpoint on 2026-08-30 and each returned HTTP 200 with a
+        well-formed OAI-PMH response envelope.
+      security: []
+      parameters:
+      - name: verb
+        in: query
+        required: true
+        description: The OAI-PMH verb to invoke.
+        schema:
+          type: string
+          enum:
+          - Identify
+          - ListMetadataFormats
+          - ListSets
+          - ListIdentifiers
+          - ListRecords
+          - GetRecord
+      - name: metadataPrefix
+        in: query
+        required: false
+        description: >-
+          Metadata format to return. Required for ListIdentifiers, ListRecords and GetRecord.
+          The endpoint's ListMetadataFormats response advertises exactly these five prefixes.
+        schema:
+          type: string
+          enum:
+          - oai_dc
+          - xmetadiss
+          - mods
+          - nl_didl
+          - qdc
+      - name: set
+        in: query
+        required: false
+        description: >-
+          Set to restrict the harvest to. ListSets advertises person, publication and
+          publication-by-year sets, e.g. `persons:all`, `publications:all`,
+          `publications:withFiles`.
+        schema:
+          type: string
+        examples:
+          persons:
+            value: persons:all
+          publications:
+            value: publications:all
+          publicationsWithFiles:
+            value: publications:withFiles
+      - name: identifier
+        in: query
+        required: false
+        description: >-
+          OAI identifier of a single record. Required for GetRecord. Identifiers are of the form
+          `oai:pure.atira.dk:persons/<uuid>` or `oai:pure.atira.dk:publications/<uuid>`.
+        schema:
+          type: string
+      - name: from
+        in: query
+        required: false
+        description: Lower bound on the record datestamp, YYYY-MM-DDThh:mm:ssZ granularity.
+        schema:
+          type: string
+          format: date-time
+      - name: until
+        in: query
+        required: false
+        description: Upper bound on the record datestamp, YYYY-MM-DDThh:mm:ssZ granularity.
+        schema:
+          type: string
+          format: date-time
+      - name: resumptionToken
+        in: query
+        required: false
+        description: Continuation token returned by an incomplete list response.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: >-
+            OAI-PMH response envelope. Protocol-level failures are also returned with status 200
+            and carry an <error> element with an OAI-PMH error code.
+          content:
+            text/xml:
+              schema:
+                type: string
+                description: OAI-PMH 2.0 XML document rooted at <OAI-PMH>.

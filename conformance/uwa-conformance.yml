@@ -1,0 +1,109 @@
+generated: '2026-08-30'
+method: probed
+source: >-
+  Live probes on 2026-08-30 of https://api.research-repository.uwa.edu.au/ws/oai,
+  https://idp.uwa.edu.au/idp/shibboleth, https://api-portal.uwa.edu.au/, https://api.uwa.edu.au/
+  and https://www.uwa.edu.au/. Every conformance below is asserted from a response body that was
+  read, not from a prose claim on a web page.
+x-operator: institution
+regime: education
+note: >-
+  Conformance targets are the Kin Score `education` regime standards list — scim, lti, oneroster,
+  ed-fi, caliper, qti, oai-pmh, shibboleth, saml, orcid, datacite, crossref. Only surfaces UWA
+  itself operates are assessed here. The Elsevier Pure Web Service at /ws/api/524 and the Ex Libris
+  Primo VE discovery layer at onesearch.library.uwa.edu.au are vendor contracts running under UWA
+  tenancy and are NOT assessed as UWA conformance — see the x-operator markers in apis.yml.
+standards:
+- id: oai-pmh
+  conforms: true
+  evidence: >-
+    https://api.research-repository.uwa.edu.au/ws/oai serves OAI-PMH 2.0 unauthenticated. All six
+    verbs returned HTTP 200 with a well-formed <OAI-PMH> envelope on 2026-08-30: Identify,
+    ListMetadataFormats, ListSets, ListIdentifiers, ListRecords, GetRecord. Identify declares
+    protocolVersion 2.0, adminEmail help-repository@uwa.edu.au, earliestDatestamp
+    2014-08-20T07:32:52Z, granularity YYYY-MM-DDThh:mm:ssZ, deletedRecord "no". Five metadata
+    prefixes advertised (oai_dc, qdc, mods, xmetadiss, nl_didl) and 167 sets enumerated. Saved
+    responses: examples/uwa-oai-pmh-identify-example.xml,
+    examples/uwa-oai-pmh-listmetadataformats-example.xml, examples/uwa-oai-pmh-listsets-example.xml.
+- id: shibboleth
+  conforms: true
+  evidence: >-
+    https://idp.uwa.edu.au/idp/shibboleth returns 200 with a Shibboleth IdP metadata document
+    (5,081 bytes) carrying urn:mace:shibboleth:metadata:1.0 and <shibmd:Scope regexp="false">
+    uwa.edu.au</shibmd:Scope>. Signing key named uwa-prod-signing-cert, CN=idp.uwa.edu.au.
+    Institution-operated by definition — UWA runs the identity provider.
+- id: saml
+  conforms: true
+  evidence: >-
+    The same document is a SAML 2.0 <EntityDescriptor entityID="https://idp.uwa.edu.au/idp/shibboleth">
+    with an <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">,
+    signing and encryption KeyDescriptors, an Organization block, and SingleSignOnService bindings
+    for both urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST
+    (https://idp.uwa.edu.au/idp/profile/SAML2/POST/SSO) and HTTP-Redirect
+    (https://idp.uwa.edu.au/idp/profile/SAML2/Redirect/SSO). NameIDFormat transient.
+- id: openaire-cerif-1.2
+  conforms: partial
+  evidence: >-
+    Every OAI-PMH response is xsi:schemaLocation'd against
+    https://www.openaire.eu/schema/cris/1.2/openaire-cerif-profile.xsd, and ListSets advertises an
+    `openaire` set. Marked partial because the CERIF profile was not itself harvested and validated
+    against the XSD in this run — only the schemaLocation declaration and the set were observed.
+- id: crossref
+  conforms: partial
+  evidence: >-
+    Publication records harvested from set publications:all carry resolvable Crossref DOIs in
+    dc:identifier (observed: 10.1111/1467-6419.00169, 10.5055/jom.2005.0007). This is evidence UWA
+    exposes DOI-based identifiers for its outputs; it is NOT evidence UWA is a Crossref member or
+    mints DOIs, and it is recorded as partial for that reason.
+- id: datacite
+  conforms: false
+  evidence: >-
+    A datasets:all set exists on the OAI-PMH endpoint but no DataCite-minted DOI prefix
+    attributable to UWA was observed in the sampled records, and no DataCite repository or
+    prefix declaration was found on any UWA host probed.
+- id: orcid
+  conforms: false
+  evidence: >-
+    No ORCID identifier appeared in the oai_dc person records sampled from set persons:all
+    (dc:identifier resolves to the Pure portal person page, dc:title is the name). ORCID is carried
+    in the Pure Web Service's WSPerson object, but that is Elsevier's contract, not UWA's, and is
+    behind an API key.
+- id: scim
+  conforms: false
+  evidence: No /scim/v2 or ServiceProviderConfig surface was found on any UWA host probed.
+- id: lti
+  conforms: false
+  evidence: >-
+    No LTI 1.3 platform configuration (/.well-known/lti-platform-configuration or a JWKS/OIDC
+    registration surface) was found. UWA's LMS is not publicly enumerable.
+- id: oneroster
+  conforms: false
+  evidence: No IMS Global OneRoster REST surface was found on any UWA host probed.
+- id: ed-fi
+  conforms: false
+  evidence: No Ed-Fi ODS/API surface was found. Ed-Fi is a US K-12 standard and is out of scope for an Australian university.
+- id: caliper
+  conforms: false
+  evidence: No Caliper Analytics event store or sensor endpoint was found.
+- id: qti
+  conforms: false
+  evidence: No QTI assessment interchange surface was found.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: >-
+    /.well-known/security.txt returns 404 on www.uwa.edu.au and on api-portal.uwa.edu.au.
+- id: oidc
+  conforms: false
+  evidence: >-
+    /.well-known/openid-configuration returns 404 on idp.uwa.edu.au. UWA's federation surface is
+    SAML 2.0, not OpenID Connect, at least on the publicly reachable IdP host.
+- id: openapi
+  conforms: false
+  evidence: >-
+    UWA publishes no OpenAPI of its own. api-portal.uwa.edu.au is a stock Microsoft Azure API
+    Management developer portal whose catalog is behind sign-in; the gateway at api.uwa.edu.au
+    answers HTTP/2 404 with content-type application/json and an Azure request-context header,
+    confirming a live APIM gateway but exposing no discoverable description. The only OpenAPI ever
+    held in this repo described Elsevier's Pure Web Service and has been removed as a vendor
+    contract. openapi/uwa-oai-pmh-openapi.yml is API Evangelist's own probed description of UWA's
+    OAI-PMH endpoint, not something UWA publishes.
