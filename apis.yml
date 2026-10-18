@@ -112,6 +112,11 @@ apis:
   tags:
   - API Management
   - Developer Portal
+  - Microsoft Azure
+  - Gated
+  tags_raw:
+  - API Management
+  - Developer Portal
   - Azure
   - Gated
   properties:
